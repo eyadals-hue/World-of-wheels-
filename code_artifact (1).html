@@ -1,0 +1,1933 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>درس تفاعلي: عالم من العجلات والبكرات - الصف السادس | أ. إياد السوقي</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f766e;
+            --primary-dark: #115e59;
+            --accent: #d97706;
+        }
+        body {
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            overflow-x: hidden;
+        }
+        .tab-btn.active {
+            background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(13, 148, 136, 0.35);
+            transform: translateY(-1px);
+        }
+        .sub-pill.active {
+            background-color: #0f766e;
+            color: #ffffff;
+        }
+        .card-hover {
+            transition: all 0.25s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.1);
+        }
+        .flip-card {
+            perspective: 1000px;
+            min-height: 220px;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 220px;
+            transition: transform 0.6s;
+            transform-style: preserve-threed;
+        }
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 1rem;
+        }
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+        input[type="range"] {
+            accent-color: #0f766e;
+        }
+        @keyframes pulse-slow {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.04); }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 3s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 text-slate-800">
+
+    <!-- Top School & Teacher Banner -->
+    <header class="bg-gradient-to-l from-teal-900 via-teal-800 to-emerald-900 text-white shadow-lg border-b-4 border-amber-500">
+        <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/20 border-2 border-amber-400 flex items-center justify-center shadow-inner shrink-0">
+                        <svg class="w-9 h-9 text-amber-300 animate-spin" style="animation-duration: 14s;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="9"></circle>
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <line x1="12" y1="3" x2="12" y2="9"></line>
+                            <line x1="12" y1="15" x2="12" y2="21"></line>
+                            <line x1="3" y1="12" x2="9" y2="12"></line>
+                            <line x1="15" y1="12" x2="21" y2="12"></line>
+                            <line x1="5.6" y1="5.6" x2="9.8" y2="9.8"></line>
+                            <line x1="14.2" y1="14.2" x2="18.4" y2="18.4"></line>
+                            <line x1="18.4" y1="5.6" x2="14.2" y2="9.8"></line>
+                            <line x1="9.8" y1="14.2" x2="5.6" y2="18.4"></line>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-semibold text-amber-300 mb-1">
+                            <span class="bg-white/10 px-2.5 py-0.5 rounded-full">المنهاج الفلسطيني</span>
+                            <span>•</span>
+                            <span class="bg-white/10 px-2.5 py-0.5 rounded-full">مبحث التكنولوجيا - الصف السادس الأساسي</span>
+                            <span>•</span>
+                            <span class="bg-amber-500/30 text-amber-200 px-2.5 py-0.5 rounded-full">الوحدة الأولى: نفكر بالتكنولوجيا</span>
+                        </div>
+                        <h1 class="text-2xl sm:text-3xl font-black tracking-tight text-white">
+                            درس تفاعلي: عالم من العجلات والبكرات
+                        </h1>
+                    </div>
+                </div>
+
+                <!-- Teacher & School Badge + Audio Toggle -->
+                <div class="flex items-center gap-3 self-stretch md:self-auto justify-between md:justify-end bg-teal-950/60 border border-teal-600/50 rounded-2xl px-4 py-2.5">
+                    <div class="text-right">
+                        <div class="text-xs text-teal-200 font-medium">إعداد وتصميم</div>
+                        <div class="text-sm sm:text-base font-extrabold text-amber-300">الأستاذ إياد السوقي</div>
+                        <div class="text-xs text-white/90 font-semibold flex items-center gap-1 mt-0.5">
+                            <svg class="w-3.5 h-3.5 text-amber-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0z"/></svg>
+                            <span>مدرسة ذكور جنين الأساسية</span>
+                        </div>
+                    </div>
+                    <button id="soundToggleBtn" type="button" class="p-2.5 rounded-xl bg-teal-800 hover:bg-teal-700 text-amber-300 border border-teal-600 transition" title="تشغيل/كتم المؤثرات الصوتية">
+                        <span id="soundIconOn" class="block">🔊</span>
+                        <span id="soundIconOff" class="hidden">🔇</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <nav class="bg-teal-950/80 border-t border-teal-800/80">
+            <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+                <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto py-2.5 no-scrollbar" id="mainTabs">
+                    <button type="button" data-tab="wheel" class="tab-btn active flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap bg-teal-900/60 text-teal-100 hover:bg-teal-800 transition">
+                        <span>🛞</span>
+                        <span>1. الدولاب و«لا تخترع عجلاً»</span>
+                    </button>
+                    <button type="button" data-tab="pulley" class="tab-btn flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap bg-teal-900/60 text-teal-100 hover:bg-teal-800 transition">
+                        <span>⚙️</span>
+                        <span>2. البكرة واستخداماتها</span>
+                    </button>
+                    <button type="button" data-tab="systems" class="tab-btn flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap bg-teal-900/60 text-teal-100 hover:bg-teal-800 transition">
+                        <span>🏗️</span>
+                        <span>3. أنواع نظم البكرات</span>
+                    </button>
+                    <button type="button" data-tab="simulator" class="tab-btn flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap bg-teal-900/60 text-teal-100 hover:bg-teal-800 transition">
+                        <span>🔬</span>
+                        <span>4. مختبر المحاكاة التفاعلي</span>
+                    </button>
+                    <button type="button" data-tab="glossary" class="tab-btn flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap bg-teal-900/60 text-teal-100 hover:bg-teal-800 transition">
+                        <span>📖</span>
+                        <span>5. قاموس المصطلحات</span>
+                    </button>
+                    <button type="button" data-tab="quiz" class="tab-btn flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap bg-teal-900/60 text-teal-100 hover:bg-teal-800 transition">
+                        <span>🏆</span>
+                        <span>6. الاختبار التقييمي</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Progress Tracker Bar -->
+    <div class="bg-white border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-2 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm">
+            <div class="flex items-center gap-2 font-bold text-teal-800">
+                <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                <span id="currentSectionLabel">القسم الحالي: الدولاب (العجل) وحكمة «لا تخترع عجلاً»</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="text-slate-600 font-medium">تقدمك في استكشاف الدرس:</span>
+                <div class="w-32 sm:w-44 h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                    <div id="lessonProgressBar" class="h-full bg-gradient-to-l from-teal-600 to-emerald-500 transition-all duration-500" style="width: 17%;"></div>
+                </div>
+                <span id="lessonProgressText" class="font-extrabold text-teal-700">17%</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 py-6 sm:px-6 lg:px-8">
+
+        <!-- ========================================== -->
+        <!-- SECTION 1: الدولاب (العجل) ولا تخترع عجلاً -->
+        <!-- ========================================== -->
+        <section id="sec-wheel" class="lesson-section space-y-6">
+            <!-- Learning Objectives Banner -->
+            <div class="bg-gradient-to-l from-teal-50 to-emerald-50 border border-teal-200 rounded-2xl p-5 shadow-sm">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-teal-700 text-white mb-2">
+                            🎯 أهداف القسم الأول
+                        </span>
+                        <h2 class="text-xl sm:text-2xl font-black text-teal-950">مدخل إلى التكنولوجيا: الدولاب (العجل) وقصة تطوره</h2>
+                        <p class="text-sm sm:text-base text-slate-700 mt-1">
+                            سعى الإنسان منذ القدم إلى ابتكار أدوات وأنظمة تكنولوجية بسيطة بهدف <strong>حل مشكلاته</strong> و<strong>تسهيل حياته وتوفير الوقت والجهد</strong>، معتمداً على مشاهدة الطبيعة ومحاكاتها وتطور علم الميكانيك.
+                        </p>
+                    </div>
+                    <button type="button" data-goto="pulley" class="nav-jump-btn shrink-0 self-start md:self-center bg-teal-700 hover:bg-teal-800 text-white font-bold px-4 py-2.5 rounded-xl text-sm shadow transition flex items-center gap-2">
+                        <span>الانتقال إلى قسم البكرة</span>
+                        <span>←</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grid: Wheel Definition & Importance -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Definition Card -->
+                <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl font-bold shrink-0">🛞</div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-extrabold text-slate-900">ما هو الدولاب (العجل)؟</h3>
+                            <p class="text-xs text-slate-500 font-semibold">أحد أعظم الاختراعات الميكانيكية في تاريخ البشرية</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-50/70 border-r-4 border-amber-500 p-4 rounded-xl">
+                        <p class="text-base font-bold text-slate-800 leading-relaxed">
+                            <span class="text-amber-800 font-black">تعريف الدولاب (العجل):</span>
+                            هو جسم مستدير (قرص دائري الشكل) يدور حول محور ارتكاز يمر في مركزه، يُستخدم لتقليل قوة الاحتكاك مع السطح وتسهيل تحريك ونقل الأجسام والأحمال الثقيلة من مكان لآخر بأقل جهد ممكن.
+                        </p>
+                    </div>
+
+                    <h4 class="font-extrabold text-teal-900 text-base pt-1">🌟 أهمية اختراع الدولاب (العجل) في حياة الإنسان:</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-3">
+                            <span class="text-xl">🚛</span>
+                            <div>
+                                <div class="font-bold text-sm text-slate-900">ازدهار النقل والمواصلات</div>
+                                <p class="text-xs text-slate-600 mt-0.5">نقل البضائع والأشخاص والأحمال الثقيلة لمسافات طويلة بسرعة وأمان وجهد قليل.</p>
+                            </div>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-3">
+                            <span class="text-xl">🌾</span>
+                            <div>
+                                <div class="font-bold text-sm text-slate-900">تطور الزراعة والري</div>
+                                <p class="text-xs text-slate-600 mt-0.5">صناعة العربات الزراعية، الجرارات، ونواعير المياه لرفع الماء وسقي المزروعات.</p>
+                            </div>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-3">
+                            <span class="text-xl">⚙️</span>
+                            <div>
+                                <div class="font-bold text-sm text-slate-900">أساس الآلات والبكرات</div>
+                                <p class="text-xs text-slate-600 mt-0.5">مهد الطريق لاختراع البكرات، المسننات (التروس)، المحركات، وتوربينات توليد الطاقة.</p>
+                            </div>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-3">
+                            <span class="text-xl">⏱️</span>
+                            <div>
+                                <div class="font-bold text-sm text-slate-900">توفير الوقت والجهد</div>
+                                <p class="text-xs text-slate-600 mt-0.5">تحويل الاحتكاك الانزلاقي الكبير إلى احتكاك تدحرجي بسيط يسهل التغلب عليه.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive "Don't Reinvent the Wheel" Box -->
+                <div class="lg:col-span-5 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100 rounded-2xl border-2 border-amber-300 p-6 shadow-sm flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-amber-600 text-white">
+                            💡 إضاءة منهجية هامة جداً
+                        </div>
+                        <h3 class="text-xl font-black text-amber-950">
+                            عبارة: «لا تخترع عجلاً!» — لماذا تُقال؟
+                        </h3>
+                        <blockquote class="bg-white/90 border-r-4 border-amber-600 p-4 rounded-xl shadow-sm text-slate-800 text-sm sm:text-base font-bold leading-relaxed">
+                            "تُقال هذه العبارة كحكمةٍ لمن يُضيع وقته وجهده في محاولة اختراع أو اكتشاف شيء تم التوصل إليه وإنجازه مسبقاً بنجاح."
+                        </blockquote>
+                        <div class="space-y-2 text-sm text-slate-800">
+                            <p class="font-bold text-teal-900">📌 الدلالة العلمية والتكنولوجية للعبارة:</p>
+                            <ul class="space-y-1.5 list-disc list-inside text-xs sm:text-sm text-slate-700 font-medium">
+                                <li><strong>ابدأ من حيث انتهى الآخرون:</strong> استفد من المعارف والاختراعات السابقة ولا تبدأ من الصفر.</li>
+                                <li><strong>التطوير بدلاً من التكرار:</strong> بدلاً من إعادة اختراع العجلة ذاتها، فكّر في تطويرها (مثل تحويلها إلى بكرة أو ترس أو إطار حديث).</li>
+                                <li><strong>استثمار الوقت والجهد:</strong> توجيه التفكير لحل مشكلات جديدة لم تُحل بعد.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Mini Situation Check -->
+                    <div class="bg-white rounded-xl p-4 border border-amber-200 space-y-2">
+                        <div class="text-xs font-extrabold text-amber-800">🤔 طبّق الحكمة بنفسك (اضغط لاختبار الموقف):</div>
+                        <p class="text-xs text-slate-700 font-semibold">أراد زميلك تصميم عربة صغيرة لحمل الكتب، فقرر قضاء أسبوعين لابتكار شكل مربع يتدحرج بدلاً من استخدام العجلات الدائرية المتوفرة. بمَ تنصحه؟</p>
+                        <div class="flex flex-wrap gap-2 pt-1">
+                            <button type="button" id="adviceBtnCorrect" class="flex-1 bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold py-2 px-3 rounded-lg transition">
+                                لا تخترع عجلاً! استخدم العجلات الدائرية وطوّر تصميم العربة
+                            </button>
+                            <button type="button" id="adviceBtnWrong" class="flex-1 bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs font-bold py-2 px-3 rounded-lg transition">
+                                استمر في تجريب المربعات الخشبية
+                            </button>
+                        </div>
+                        <div id="adviceFeedback" class="hidden text-xs font-bold p-2.5 rounded-lg mt-2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Mini-Lab: Sliding vs Rolling (Why the Wheel Matters) -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-5">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div>
+                        <h3 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
+                            <span>🧪</span>
+                            <span>تجربة تفاعلية: أثر الدولاب (العجل) في تقليل الاحتكاك وتطوره عبر التاريخ</span>
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600">قارن بين جرّ حجر ثقيل مباشرة على الأرض (احتكاك عالٍ) وبين نقله باستخدام جذوع الأشجار ثم الدولاب.</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" data-wheel-mode="ground" class="wheel-mode-btn active bg-teal-700 text-white text-xs font-bold px-3 py-2 rounded-xl transition">1. السحب على الأرض مباشرة</button>
+                        <button type="button" data-wheel-mode="logs" class="wheel-mode-btn bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold px-3 py-2 rounded-xl transition">2. الدحرجة على جذوع الأشجار</button>
+                        <button type="button" data-wheel-mode="wheel" class="wheel-mode-btn bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold px-3 py-2 rounded-xl transition">3. عربة ذات عجلات ومحور</button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                    <div class="lg:col-span-8 bg-slate-900 rounded-2xl p-4 relative overflow-hidden">
+                        <svg id="wheelExperimentSvg" viewBox="0 0 650 210" class="w-full h-48 sm:h-52">
+                            <!-- Sky & Ground -->
+                            <rect x="0" y="0" width="650" height="165" fill="#0f172a"/>
+                            <rect x="0" y="165" width="650" height="45" fill="#334155"/>
+                            <line x1="0" y1="165" x2="650" y2="165" stroke="#94a3b8" stroke-width="3"/>
+
+                            <!-- Moving Group -->
+                            <g id="wheelCartGroup" transform="translate(80, 0)">
+                                <!-- Heavy Stone Block -->
+                                <rect x="20" y="75" width="140" height="65" rx="8" fill="#cbd5e1" stroke="#64748b" stroke-width="3"/>
+                                <text x="90" y="113" text-anchor="middle" fill="#0f172a" font-size="14" font-weight="bold">كتلة صخرية (100 كغم)</text>
+
+                                <!-- Friction Sparks (visible in ground mode) -->
+                                <g id="frictionSparks">
+                                    <path d="M 30 163 L 20 152 M 65 163 L 52 150 M 105 163 L 95 152 M 140 163 L 130 150" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
+                                    <rect x="20" y="140" width="140" height="25" fill="#94a3b8" stroke="#475569" stroke-width="2"/>
+                                    <text x="90" y="157" text-anchor="middle" fill="#7c2d12" font-size="11" font-weight="bold">احتكاك مباشر شديد!</text>
+                                </g>
+
+                                <!-- Logs (visible in logs mode) -->
+                                <g id="logsGroup" class="hidden">
+                                    <circle class="rolling-elem" cx="45" cy="152" r="12" fill="#b45309" stroke="#78350f" stroke-width="2.5"/>
+                                    <circle class="rolling-elem" cx="90" cy="152" r="12" fill="#b45309" stroke="#78350f" stroke-width="2.5"/>
+                                    <circle class="rolling-elem" cx="135" cy="152" r="12" fill="#b45309" stroke="#78350f" stroke-width="2.5"/>
+                                </g>
+
+                                <!-- Wheels & Axle (visible in wheel mode) -->
+                                <g id="modernWheelGroup" class="hidden">
+                                    <rect x="15" y="135" width="150" height="10" rx="4" fill="#0d9488"/>
+                                    <g class="rolling-wheel" transform="translate(50, 150)">
+                                        <circle cx="0" cy="0" r="15" fill="#1e293b" stroke="#f59e0b" stroke-width="4"/>
+                                        <line x1="-12" y1="0" x2="12" y2="0" stroke="#f59e0b" stroke-width="2"/>
+                                        <line x1="0" y1="-12" x2="0" y2="12" stroke="#f59e0b" stroke-width="2"/>
+                                        <circle cx="0" cy="0" r="4" fill="#ffffff"/>
+                                    </g>
+                                    <g class="rolling-wheel" transform="translate(130, 150)">
+                                        <circle cx="0" cy="0" r="15" fill="#1e293b" stroke="#f59e0b" stroke-width="4"/>
+                                        <line x1="-12" y1="0" x2="12" y2="0" stroke="#f59e0b" stroke-width="2"/>
+                                        <line x1="0" y1="-12" x2="0" y2="12" stroke="#f59e0b" stroke-width="2"/>
+                                        <circle cx="0" cy="0" r="4" fill="#ffffff"/>
+                                    </g>
+                                </g>
+
+                                <!-- Pull Rope & Arrow -->
+                                <line x1="160" y1="115" x2="255" y2="115" stroke="#fbbf24" stroke-width="4" stroke-dasharray="6,4"/>
+                                <polygon points="260,115 246,107 246,123" fill="#fbbf24"/>
+                                <text id="wheelForceBadge" x="210" y="100" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="bold">قوة سحب عالية جداً</text>
+                            </g>
+                        </svg>
+
+                        <div class="flex items-center justify-between gap-4 mt-2 bg-slate-800/90 px-4 py-2.5 rounded-xl">
+                            <button type="button" id="pushCartBtn" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs sm:text-sm px-4 py-2 rounded-lg transition shadow">
+                                ▶️ اسحب الكتلة الآن
+                            </button>
+                            <button type="button" id="resetCartBtn" class="bg-slate-700 hover:bg-slate-600 text-white font-bold text-xs px-3 py-2 rounded-lg transition">
+                                إعادة لموقع البداية ↺
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Stats & Explanation -->
+                    <div class="lg:col-span-4 bg-slate-50 rounded-2xl p-4 border border-slate-200 space-y-3">
+                        <div class="text-xs font-bold text-teal-800 uppercase">نتيجة الملاحظة التجريبية</div>
+                        <h4 id="wheelExpTitle" class="text-base font-black text-slate-900">1. السحب المباشر على الأرض</h4>
+                        <p id="wheelExpDesc" class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            عند سحب الحجر مباشرة على الأرض، تنشأ قوة احتكاك كبيرة جداً تعيق الحركة، فنحتاج إلى جهد عضلي هائل ووقت طويل لتحريكه مسافة قصيرة.
+                        </p>
+                        <div class="space-y-2 pt-2 border-t border-slate-200 text-xs">
+                            <div class="flex justify-between font-bold">
+                                <span>مقدار الاحتكاك:</span>
+                                <span id="wheelFrictionLabel" class="text-red-600">مرتفع جداً (90%)</span>
+                            </div>
+                            <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                                <div id="wheelFrictionBar" class="h-full bg-red-500 transition-all duration-300" style="width: 90%;"></div>
+                            </div>
+                            <div class="flex justify-between font-bold pt-1">
+                                <span>سهولة الحركة وتوفير الجهد:</span>
+                                <span id="wheelEaseLabel" class="text-amber-600">ضعيفة جداً (15%)</span>
+                            </div>
+                            <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                                <div id="wheelEaseBar" class="h-full bg-emerald-500 transition-all duration-300" style="width: 15%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SECTION 2: تعريف البكرة، أهميتها واستخداماتها -->
+        <!-- ========================================== -->
+        <section id="sec-pulley" class="lesson-section hidden space-y-6">
+            <div class="bg-gradient-to-l from-teal-50 to-cyan-50 border border-teal-200 rounded-2xl p-5 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-teal-700 text-white mb-2">
+                        ⚙️ أهداف القسم الثاني
+                    </span>
+                    <h2 class="text-xl sm:text-2xl font-black text-teal-950">البكرة: تعريفها، أجزاؤها، أهميتها واستخداماتها في الواقع</h2>
+                    <p class="text-sm sm:text-base text-slate-700 mt-1">
+                        كيف طوّر الإنسان فكرة الدولاب (العجل) ليصنع أداة ترفع الأوزان الثقيلة إلى الأعلى وتنقل الحركة في الآلات؟
+                    </p>
+                </div>
+                <button type="button" data-goto="systems" class="nav-jump-btn shrink-0 self-start md:self-center bg-teal-700 hover:bg-teal-800 text-white font-bold px-4 py-2.5 rounded-xl text-sm shadow transition flex items-center gap-2">
+                    <span>الانتقال إلى أنواع نظم البكرات</span>
+                    <span>←</span>
+                </button>
+            </div>
+
+            <!-- Interactive Anatomy of a Pulley + Definition -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900">ما هي البكرة؟ وما آلية عملها؟</h3>
+                    <div class="bg-teal-50 border-r-4 border-teal-600 p-4 rounded-xl">
+                        <p class="text-sm sm:text-base font-bold text-slate-800 leading-relaxed">
+                            <span class="text-teal-900 font-black">تعريف البكرة:</span>
+                            هي أداة ميكانيكية بسيطة على شكل عجل (قرص دائري) يحتوي محيطه على مجرى (أخدود غائر)، يدور حول محور، ويلتف حول محيطه حبل أو سلك أو حزام أو سلسلة معدنية.
+                        </p>
+                    </div>
+
+                    <div class="space-y-2.5">
+                        <h4 class="font-extrabold text-slate-900 text-sm sm:text-base">🔍 المبدأ الفيزيائي لعمل البكرة (علاقتها بالرافعة):</h4>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            تعمل البكرة عمل عتلة (رافعة) دائرية مستمرة الدوران، بحيث:
+                        </p>
+                        <ul class="space-y-2 text-xs sm:text-sm">
+                            <li class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-full bg-amber-500 text-white font-bold flex items-center justify-center shrink-0">1</span>
+                                <span><strong>نقطة الارتكاز:</strong> هي محور البكرة الذي تدور حوله في المركز.</span>
+                            </li>
+                            <li class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-full bg-teal-600 text-white font-bold flex items-center justify-center shrink-0">2</span>
+                                <span><strong>ذراع القوة:</strong> نصف قطر البكرة من جهة سحب الحبل (تأثير القوة).</span>
+                            </li>
+                            <li class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center shrink-0">3</span>
+                                <span><strong>ذراع المقاومة:</strong> نصف قطر البكرة من جهة تعليق الثقل (المقاومة).</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 4 Main Functions of Pulleys in Curriculum -->
+                    <div class="pt-2">
+                        <h4 class="font-extrabold text-teal-900 text-sm sm:text-base mb-2.5">⭐ الأهمية والوظائف الأربع الرئيسية للبكرات:</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm">
+                            <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 font-bold text-emerald-950">
+                                1️⃣ تغيير اتجاه القوة (نسحب للأسفل ليرتفع الثقل للأعلى بأمان).
+                            </div>
+                            <div class="p-3 rounded-xl bg-amber-50 border border-amber-200 font-bold text-amber-950">
+                                2️⃣ توفير الوقت وتقليل الجهد المبذول في رفع الأوزان الثقيلة.
+                            </div>
+                            <div class="p-3 rounded-xl bg-sky-50 border border-sky-200 font-bold text-sky-950">
+                                3️⃣ توصيل ونقل الحركة من محور لآخر (الدراجة، الغسالة).
+                            </div>
+                            <div class="p-3 rounded-xl bg-purple-50 border border-purple-200 font-bold text-purple-950">
+                                4️⃣ تحويل الحركة وتغيير سرعتها داخل الآلات والمحركات.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive SVG Diagram of Pulley Parts -->
+                <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-lg font-extrabold text-slate-900 mb-1">🎯 استكشف أجزاء البكرة تفاعلياً</h3>
+                        <p class="text-xs text-slate-500 mb-3">اضغط على أي جزء من أجزاء البكرة في الرسم أو الأزرار أدناه لمعرفة وظيفته:</p>
+                        <div class="flex flex-wrap gap-1.5 mb-4">
+                            <button type="button" data-part="wheel" class="pulley-part-btn bg-teal-700 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition">1. جسم البكرة (العجل والمجرى)</button>
+                            <button type="button" data-part="axle" class="pulley-part-btn bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold px-3 py-1.5 rounded-lg transition">2. المحور (نقطة الارتكاز)</button>
+                            <button type="button" data-part="rope" class="pulley-part-btn bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold px-3 py-1.5 rounded-lg transition">3. الحبل / السلسلة</button>
+                            <button type="button" data-part="force" class="pulley-part-btn bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold px-3 py-1.5 rounded-lg transition">4. ذراع القوة وذراع المقاومة</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900 rounded-2xl p-4 flex items-center justify-center">
+                        <svg viewBox="0 0 420 260" class="w-full max-h-60">
+                            <!-- Ceiling Beam -->
+                            <rect x="110" y="10" width="200" height="14" rx="4" fill="#64748b"/>
+                            <line x1="210" y1="24" x2="210" y2="95" stroke="#94a3b8" stroke-width="8" stroke-linecap="round"/>
+
+                            <!-- Rope -->
+                            <g id="svgPartRope">
+                                <line x1="155" y1="95" x2="155" y2="210" stroke="#fbbf24" stroke-width="6"/>
+                                <line x1="265" y1="95" x2="265" y2="205" stroke="#fbbf24" stroke-width="6"/>
+                                <path d="M 155 95 A 55 55 0 0 1 265 95" fill="none" stroke="#fbbf24" stroke-width="6"/>
+                            </g>
+
+                            <!-- Pulley Wheel -->
+                            <g id="svgPartWheel">
+                                <circle cx="210" cy="95" r="55" fill="#0f766e" stroke="#5eead4" stroke-width="5"/>
+                                <circle cx="210" cy="95" r="44" fill="#115e59" stroke="#2dd4bf" stroke-width="2" stroke-dasharray="5,5"/>
+                            </g>
+
+                            <!-- Lever Arms (Force & Resistance Radii) -->
+                            <g id="svgPartArms">
+                                <line x1="155" y1="95" x2="210" y2="95" stroke="#38bdf8" stroke-width="3"/>
+                                <line x1="210" y1="95" x2="265" y2="95" stroke="#f43f5e" stroke-width="3"/>
+                                <text x="182" y="88" text-anchor="middle" fill="#bae6fd" font-size="10" font-weight="bold">ذراع المقاومة</text>
+                                <text x="238" y="88" text-anchor="middle" fill="#fecdd3" font-size="10" font-weight="bold">ذراع القوة</text>
+                            </g>
+
+                            <!-- Axle -->
+                            <g id="svgPartAxle">
+                                <circle cx="210" cy="95" r="11" fill="#f59e0b" stroke="#ffffff" stroke-width="3"/>
+                            </g>
+
+                            <!-- Weight on Left -->
+                            <rect x="130" y="205" width="50" height="40" rx="6" fill="#38bdf8" stroke="#0284c7" stroke-width="2"/>
+                            <text x="155" y="229" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="bold">الثقل</text>
+
+                            <!-- Pull Arrow on Right -->
+                            <polygon points="265,235 256,215 274,215" fill="#f43f5e"/>
+                            <text x="315" y="225" text-anchor="middle" fill="#fda4af" font-size="12" font-weight="bold">قوة السحب ↓</text>
+                        </svg>
+                    </div>
+
+                    <div id="pulleyPartInfoBox" class="mt-4 bg-teal-50 border border-teal-200 rounded-xl p-3.5">
+                        <div id="pulleyPartTitle" class="font-extrabold text-teal-900 text-sm">1. جسم البكرة ومجرى الحبل (الأخدود)</div>
+                        <p id="pulleyPartDesc" class="text-xs sm:text-sm text-slate-700 mt-1">
+                            عجلة دائرية تحتوي حافتها الخارجية على تجويف غائر يُسمى «مجرى البكرة»، وظيفته تثبيت الحبل أو السلسلة ومنع انزلاقها أثناء الدوران وسحب الأثقال.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Real-Life Applications Gallery -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+                <div>
+                    <h3 class="text-lg sm:text-xl font-extrabold text-slate-900">🌍 استخدامات البكرات في حياتنا الواقعية (اضغط على البطاقة للتفاصيل)</h3>
+                    <p class="text-xs sm:text-sm text-slate-600">أمثلة واقعية من كتاب التكنولوجيا ومن بيئتنا المدرسية والعملية في فلسطين:</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="realWorldCards">
+                    <!-- Populated via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SECTION 3: أنواع نظم البكرات الثلاثة -->
+        <!-- ========================================== -->
+        <section id="sec-systems" class="lesson-section hidden space-y-6">
+            <div class="bg-gradient-to-l from-teal-50 to-amber-50 border border-teal-200 rounded-2xl p-5 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-teal-700 text-white mb-2">
+                        🏗️ أهداف القسم الثالث
+                    </span>
+                    <h2 class="text-xl sm:text-2xl font-black text-teal-950">أنواع نظم البكرات: النظام الثابت، النظام المتحرك، والنظام المركب</h2>
+                    <p class="text-sm sm:text-base text-slate-700 mt-1">
+                        تعرّف على الفرق بين الأنظمة الثلاثة من حيث مكان تثبيت البكرة، حركتها، وتأثيرها على القوة اللازمة لرفع الأثقال.
+                    </p>
+                </div>
+                <button type="button" data-goto="simulator" class="nav-jump-btn shrink-0 self-start md:self-center bg-amber-600 hover:bg-amber-700 text-white font-bold px-4 py-2.5 rounded-xl text-sm shadow transition flex items-center gap-2">
+                    <span>جرّبها بنفسك في مختبر المحاكاة</span>
+                    <span>←</span>
+                </button>
+            </div>
+
+            <!-- Three Cards for Fixed, Movable, Compound -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- 1. Fixed Pulley -->
+                <div class="bg-white rounded-2xl border-2 border-sky-200 p-5 shadow-sm flex flex-col justify-between card-hover">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full text-xs font-extrabold bg-sky-100 text-sky-800">النوع الأول</span>
+                            <span class="text-xs font-bold text-slate-500">الفائدة الميكانيكية = 1</span>
+                        </div>
+                        <h3 class="text-xl font-black text-sky-950">1. نظام البكرة الثابتة</h3>
+                        <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                            بكرة يدور محورها في مكان <strong>ثابت لا ينتقل</strong> (تُثبّت غالباً في السقف أو أعلى السارية)، ويمر الحبل حول مجراها: طرف يتصل بالثقل والطرف الآخر نسحبه بأيدينا.
+                        </p>
+                        <ul class="space-y-1.5 text-xs sm:text-sm text-slate-700 bg-sky-50/70 p-3.5 rounded-xl border border-sky-100">
+                            <li>✅ <strong>الوظيفة الأساسية:</strong> تغيير اتجاه القوة (نسحب للأسفل ليرتفع الثقل للأعلى).</li>
+                            <li>⚠️ <strong>تأثيرها على الجهد:</strong> لا تقلل من الوزن الفعلي للثقل (القوة = المقاومة).</li>
+                            <li>📌 <strong>مثال واقعي:</strong> سارية العلم المدرسي، دلو البئر اليدوي.</li>
+                        </ul>
+                    </div>
+                    <button type="button" data-sim-preset="fixed" class="open-in-sim-btn mt-4 w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-2.5 rounded-xl text-xs sm:text-sm transition">
+                        🔬 محاكاة البكرة الثابتة عملياً
+                    </button>
+                </div>
+
+                <!-- 2. Movable Pulley -->
+                <div class="bg-white rounded-2xl border-2 border-emerald-200 p-5 shadow-sm flex flex-col justify-between card-hover">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-100 text-emerald-800">النوع الثاني</span>
+                            <span class="text-xs font-bold text-slate-500">الفائدة الميكانيكية = 2</span>
+                        </div>
+                        <h3 class="text-xl font-black text-emerald-950">2. نظام البكرة المتحركة</h3>
+                        <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                            بكرة لها <strong>محور حر يتحرك وينتقل مع حركة الثقل</strong> صعوداً وهبوطاً. يُثبّت أحد طرفي الحبل في السقف، ويمر تحت البكرة المتحركة المتصلة بالثقل.
+                        </p>
+                        <ul class="space-y-1.5 text-xs sm:text-sm text-slate-700 bg-emerald-50/70 p-3.5 rounded-xl border border-emerald-100">
+                            <li>✅ <strong>الوظيفة الأساسية:</strong> تقليل الجهد المبذول إلى النصف تقريباً (توفير 50% من القوة).</li>
+                            <li>⚠️ <strong>اتجاه القوة:</strong> يتطلب السحب للأعلى (بنفس اتجاه رفع الثقل).</li>
+                            <li>📌 <strong>السبب العلمي:</strong> يتوزع وزن الثقل بالتساوي على فرعي الحبل الحاملين للبكرة.</li>
+                        </ul>
+                    </div>
+                    <button type="button" data-sim-preset="movable" class="open-in-sim-btn mt-4 w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-xl text-xs sm:text-sm transition">
+                        🔬 محاكاة البكرة المتحركة عملياً
+                    </button>
+                </div>
+
+                <!-- 3. Compound Pulley -->
+                <div class="bg-white rounded-2xl border-2 border-amber-300 p-5 shadow-sm flex flex-col justify-between card-hover">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full text-xs font-extrabold bg-amber-100 text-amber-800">النوع الثالث (الأقوى)</span>
+                            <span class="text-xs font-bold text-slate-500">الفائدة الميكانيكية = 2 إلى 4+</span>
+                        </div>
+                        <h3 class="text-xl font-black text-amber-950">3. نظام البكرات المركب</h3>
+                        <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                            هو <strong>مجموع النظامين الثابت والمتحرك معاً</strong>؛ حيث يدمج بكرة ثابتة (أو أكثر) في الأعلى مع بكرة متحركة (أو أكثر) متصلة بالثقل في نظام واحد.
+                        </p>
+                        <ul class="space-y-1.5 text-xs sm:text-sm text-slate-700 bg-amber-50/70 p-3.5 rounded-xl border border-amber-100">
+                            <li>✅ <strong>الميزة المزدوجة:</strong> يغيّر اتجاه القوة (نسحب للأسفل بسهولة) + يقلل الجهد المبذول بشكل كبير!</li>
+                            <li>🌟 <strong>القاعدة الذهبية:</strong> كلما زاد عدد البكرات في النظام المركب، توزع الحمل أكثر وقلّت القوة اللازمة لرفعه.</li>
+                            <li>📌 <strong>مثال واقعي:</strong> الونش اليدوي (البلانكو) ورافعات البناء والموانئ.</li>
+                        </ul>
+                    </div>
+                    <button type="button" data-sim-preset="compound2" class="open-in-sim-btn mt-4 w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-2.5 rounded-xl text-xs sm:text-sm transition">
+                        🔬 محاكاة النظام المركب عملياً
+                    </button>
+                </div>
+            </div>
+
+            <!-- Comprehensive Comparison Table (Curriculum Standard) -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm overflow-hidden">
+                <h3 class="text-lg font-extrabold text-slate-900 mb-4">📊 جدول المقارنة المنهجي الشامل بين أنظمة البكرات الثلاثة</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-right border-collapse text-xs sm:text-sm">
+                        <thead>
+                            <tr class="bg-teal-900 text-white">
+                                <th class="p-3.5 border border-teal-800 font-extrabold">وجه المقارنة</th>
+                                <th class="p-3.5 border border-teal-800 font-extrabold">النظام الثابت</th>
+                                <th class="p-3.5 border border-teal-800 font-extrabold">النظام المتحرك</th>
+                                <th class="p-3.5 border border-teal-800 font-extrabold">النظام المركب</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200">
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3.5 font-bold bg-slate-50 border border-slate-200">عدد البكرات ونوعها</td>
+                                <td class="p-3.5 border border-slate-200">بكرة واحدة ثابتة المحور</td>
+                                <td class="p-3.5 border border-slate-200">بكرة واحدة حرة (متحركة المحور)</td>
+                                <td class="p-3.5 border border-slate-200">مجموعة بكرات (ثابتة + متحركة معاً)</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3.5 font-bold bg-slate-50 border border-slate-200">مكان البكرة وحركتها</td>
+                                <td class="p-3.5 border border-slate-200">مثبتة في الأعلى، تدور حول محورها ولا تنتقل من مكانها</td>
+                                <td class="p-3.5 border border-slate-200">متصلة بالثقل وتتحرك معه صعوداً وهبوطاً</td>
+                                <td class="p-3.5 border border-slate-200">بكرة (أو أكثر) مثبتة في الأعلى وأخرى متصلة بالثقل تتحرك معه</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3.5 font-bold bg-slate-50 border border-slate-200">الوظيفة الرئيسية</td>
+                                <td class="p-3.5 border border-slate-200">تغيير اتجاه القوة فقط لتسهيل عملية السحب</td>
+                                <td class="p-3.5 border border-slate-200">تقليل الجهد اللازم لرفع الأوزان الثقيلة إلى النصف</td>
+                                <td class="p-3.5 border border-slate-200">تغيير اتجاه القوة + مضاعفة تقليل الجهد المبذول لرفع الأثقال الكبيرة</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3.5 font-bold bg-slate-50 border border-slate-200">القوة اللازمة لرفع ثقل (120 نيوتن)</td>
+                                <td class="p-3.5 border border-slate-200 font-bold text-sky-700">120 نيوتن (نفس الوزن)</td>
+                                <td class="p-3.5 border border-slate-200 font-bold text-emerald-700">60 نيوتن (نصف الوزن)</td>
+                                <td class="p-3.5 border border-slate-200 font-bold text-amber-700">60 نيوتن (بكرتان) أو 30 نيوتن (4 بكرات)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SECTION 4: مختبر المحاكاة التفاعلي الشامل -->
+        <!-- ========================================== -->
+        <section id="sec-simulator" class="lesson-section hidden space-y-6">
+            <div class="bg-gradient-to-l from-slate-900 via-teal-950 to-slate-900 text-white rounded-2xl p-5 shadow-md">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-amber-500 text-slate-950 mb-2">
+                            🔬 مختبر التكنولوجيا الافتراضي - مدرسة ذكور جنين الأساسية
+                        </span>
+                        <h2 class="text-xl sm:text-2xl font-black">نظام محاكاة البكرات التفاعلي (الثابت، المتحرك، والمركب)</h2>
+                        <p class="text-xs sm:text-sm text-teal-100 mt-1">
+                            اختر نوع النظام، حدّد وزن الثقل، ثم اسحب الحبل بيدك عبر شريط السحب أو شغّل الرفع التلقائي لمشاهدة دوران البكرات وحساب القوة المبذولة!
+                        </p>
+                    </div>
+                    <!-- System Mode Selector Buttons -->
+                    <div class="flex flex-wrap gap-2">
+                        <button type="button" data-sim-type="fixed" class="sim-type-btn active bg-amber-500 text-slate-950 font-extrabold text-xs sm:text-sm px-3.5 py-2 rounded-xl shadow transition">
+                            1. بكرة ثابتة (1)
+                        </button>
+                        <button type="button" data-sim-type="movable" class="sim-type-btn bg-teal-800 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm px-3.5 py-2 rounded-xl transition">
+                            2. بكرة متحركة (1)
+                        </button>
+                        <button type="button" data-sim-type="compound2" class="sim-type-btn bg-teal-800 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm px-3.5 py-2 rounded-xl transition">
+                            3. نظام مركب (بكرتان)
+                        </button>
+                        <button type="button" data-sim-type="compound4" class="sim-type-btn bg-teal-800 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm px-3.5 py-2 rounded-xl transition">
+                            4. نظام مركب متقدم (4 بكرات)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Simulator Main Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Controls & Live Physics Readout (Right Column in RTL) -->
+                <div class="lg:col-span-5 space-y-4">
+                    <!-- Controls Card -->
+                    <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-5">
+                        <h3 class="text-base sm:text-lg font-extrabold text-slate-900 border-b border-slate-100 pb-2">🎛️ لوحة التحكم في التجربة</h3>
+
+                        <!-- Weight Slider -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-xs sm:text-sm font-bold">
+                                <label for="simWeightInput" class="text-slate-700">📦 وزن الثقل المراد رفعه (المقاومة):</label>
+                                <span id="simWeightDisplay" class="text-teal-700 font-black text-base">120 نيوتن (12 كغم)</span>
+                            </div>
+                            <input id="simWeightInput" type="range" min="40" max="240" step="20" value="120" class="w-full h-2.5 bg-slate-200 rounded-lg cursor-pointer">
+                            <div class="flex justify-between text-[11px] text-slate-400 font-semibold">
+                                <span>40 نيوتن (خفيف)</span>
+                                <span>120 نيوتن (متوسط)</span>
+                                <span>240 نيوتن (ثقيل جداً)</span>
+                            </div>
+                        </div>
+
+                        <!-- Pull Height Slider -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-xs sm:text-sm font-bold">
+                                <label for="simPullInput" class="text-slate-700">ロープ سحب الحبل (نسبة رفع الثقل):</label>
+                                <span id="simPullDisplay" class="text-amber-600 font-black text-base">0% (في الأسفل)</span>
+                            </div>
+                            <input id="simPullInput" type="range" min="0" max="100" step="1" value="0" class="w-full h-2.5 bg-slate-200 rounded-lg cursor-pointer">
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex gap-2.5 pt-1">
+                            <button type="button" id="simAutoLiftBtn" class="flex-1 bg-teal-700 hover:bg-teal-800 text-white font-extrabold py-2.5 px-4 rounded-xl text-xs sm:text-sm shadow transition flex items-center justify-center gap-1.5">
+                                <span>▶️</span>
+                                <span id="simAutoLiftLabel">تشغيل الرفع التلقائي</span>
+                            </button>
+                            <button type="button" id="simResetBtn" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm transition">
+                                إرجاع ↺
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Live Mechanical Advantage & Effort Metrics -->
+                    <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-4">
+                        <h3 class="text-base sm:text-lg font-extrabold text-slate-900 border-b border-slate-100 pb-2">📐 القراءات الهندسية والفيزيائية الفورية</h3>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                                <div class="text-xs text-slate-500 font-bold">وزن الثقل الفعلي (المقاومة)</div>
+                                <div id="metricLoad" class="text-xl sm:text-2xl font-black text-slate-900 mt-1">120 نيوتن</div>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-amber-50 border border-amber-200">
+                                <div class="text-xs text-amber-900 font-bold">القوة اللازمة للسحب (الجهد)</div>
+                                <div id="metricEffort" class="text-xl sm:text-2xl font-black text-amber-700 mt-1">120 نيوتن</div>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-teal-50 border border-teal-200">
+                                <div class="text-xs text-teal-900 font-bold">توفير الجهد (تخفيف الحمل)</div>
+                                <div id="metricSaving" class="text-lg sm:text-xl font-black text-teal-700 mt-1">0% (لا يوفر جهداً)</div>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-indigo-50 border border-indigo-200">
+                                <div class="text-xs text-indigo-900 font-bold">الفائدة الميكانيكية (عدد الحبال الحاملة)</div>
+                                <div id="metricMA" class="text-lg sm:text-xl font-black text-indigo-700 mt-1">1 (حبل واحد)</div>
+                            </div>
+                        </div>
+
+                        <div class="p-3.5 rounded-xl bg-slate-100 border border-slate-200 text-xs sm:text-sm space-y-1.5">
+                            <div class="flex justify-between">
+                                <span class="font-bold text-slate-600">اتجاه سحب اليد:</span>
+                                <span id="metricDirection" class="font-extrabold text-teal-800">إلى الأسفل ↓ (عكس اتجاه رفع الثقل)</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="font-bold text-slate-600">ارتفاع الثقل الحالي:</span>
+                                <span id="metricLoadHeight" class="font-extrabold text-slate-900">0.0 متر</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="font-bold text-slate-600">طول الحبل المسحوب:</span>
+                                <span id="metricRopePulled" class="font-extrabold text-amber-700">0.0 متر</span>
+                            </div>
+                        </div>
+
+                        <div id="simExplanationBanner" class="p-3.5 rounded-xl bg-teal-900 text-white text-xs sm:text-sm leading-relaxed font-medium">
+                            💡 <strong>تحليل النظام الثابت:</strong> البكرة الثابتة تدور حول محور ثابت في الأعلى؛ وظيفتها تغيير اتجاه القوة فقط (نسحب للأسفل ليرتفع الثقل للأعلى)، لكن القوة المبذولة تساوي وزن الثقل تماماً.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Animated SVG Canvas (Left Column in RTL) -->
+                <div class="lg:col-span-7 bg-slate-900 rounded-2xl border-2 border-slate-700 p-4 sm:p-6 shadow-lg flex flex-col justify-between">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-emerald-400 animate-ping"></span>
+                            <h3 id="simCanvasTitle" class="text-white font-extrabold text-sm sm:text-base">محاكاة حية: نظام البكرة الثابتة</h3>
+                        </div>
+                        <span id="simDynamoBadge" class="bg-amber-500 text-slate-950 font-black text-xs px-3 py-1 rounded-full">
+                            قراءة الميزان النابضي (القوة) = 120 N
+                        </span>
+                    </div>
+
+                    <!-- Dynamic SVG Stage -->
+                    <div class="bg-gradient-to-b from-slate-950 to-slate-900 rounded-xl border border-slate-800 p-2 flex items-center justify-center">
+                        <svg id="pulleySimSvg" viewBox="0 0 600 430" class="w-full h-[360px] sm:h-[400px] select-none">
+                            <!-- Grid lines -->
+                            <g stroke="#1e293b" stroke-width="1">
+                                <line x1="0" y1="80" x2="600" y2="80"/>
+                                <line x1="0" y1="160" x2="600" y2="160"/>
+                                <line x1="0" y1="240" x2="600" y2="240"/>
+                                <line x1="0" y1="320" x2="600" y2="320"/>
+                                <line x1="150" y1="0" x2="150" y2="400"/>
+                                <line x1="300" y1="0" x2="300" y2="400"/>
+                                <line x1="450" y1="0" x2="450" y2="400"/>
+                            </g>
+
+                            <!-- Top Steel Support Beam -->
+                            <rect x="60" y="16" width="480" height="20" rx="6" fill="#475569" stroke="#94a3b8" stroke-width="2"/>
+                            <path d="M 80 16 L 100 36 M 140 16 L 160 36 M 200 16 L 220 36 M 260 16 L 280 36 M 320 16 L 340 36 M 380 16 L 400 36 M 440 16 L 460 36 M 500 16 L 520 36" stroke="#64748b" stroke-width="2"/>
+                            <text x="300" y="30" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="bold">جسر التثبيت العلوي (حامل البكرات)</text>
+
+                            <!-- Ground Floor -->
+                            <rect x="0" y="395" width="600" height="35" fill="#1e293b"/>
+                            <line x1="0" y1="395" x2="600" y2="395" stroke="#475569" stroke-width="3"/>
+
+                            <!-- Height Ruler on Left -->
+                            <g stroke="#64748b" stroke-width="1.5" fill="#94a3b8" font-size="10">
+                                <line x1="45" y1="120" x2="45" y2="380"/>
+                                <line x1="40" y1="380" x2="50" y2="380"/><text x="32" y="383" text-anchor="end">0m</text>
+                                <line x1="40" y1="250" x2="50" y2="250"/><text x="32" y="253" text-anchor="end">1m</text>
+                                <line x1="40" y1="120" x2="50" y2="120"/><text x="32" y="123" text-anchor="end">2m</text>
+                            </g>
+
+                            <!-- Dynamic Scene Container rendered by JS -->
+                            <g id="simDynamicScene"></g>
+                        </svg>
+                    </div>
+
+                    <!-- Bottom Quick Comparison Bar inside Simulator -->
+                    <div class="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-300 bg-slate-800/70 px-4 py-2.5 rounded-xl">
+                        <span>💡 <strong>جرب الآن:</strong> ثبّت الوزن عند 120 نيوتن وبدّل بين الأنظمة الأربعة في الأعلى لملاحظة كيف تنخفض القوة من 120N إلى 60N ثم إلى 30N!</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SECTION 5: قاموس المصطلحات التفاعلي الشامل -->
+        <!-- ========================================== -->
+        <section id="sec-glossary" class="lesson-section hidden space-y-6">
+            <div class="bg-gradient-to-l from-teal-50 to-indigo-50 border border-teal-200 rounded-2xl p-5 shadow-sm">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-teal-700 text-white mb-2">
+                            📖 قاموس الدرس التفاعلي
+                        </span>
+                        <h2 class="text-xl sm:text-2xl font-black text-teal-950">قاموس مصطلحات «عالم من العجلات والبكرات»</h2>
+                        <p class="text-xs sm:text-sm text-slate-700 mt-1">
+                            ابحث في جميع مفاهيم الدرس، صفِّ المصطلحات حسب الفئة، أو اقلب البطاقة لاختبار حفظك وفهمك للمصطلح!
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" id="flipAllGlossaryBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm shadow transition">
+                            🔄 قلب جميع البطاقات (وضع المراجعة)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Search & Category Filter Controls -->
+                <div class="mt-4 grid grid-cols-1 md:grid-cols-12 gap-3">
+                    <div class="md:col-span-5 relative">
+                        <input id="glossarySearchInput" type="text" placeholder="🔍 ابحث عن مصطلح (مثال: الدولاب، البكرة، المركب، الاحتكاك...)" class="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-teal-600">
+                    </div>
+                    <div class="md:col-span-7 flex flex-wrap gap-1.5 items-center" id="glossaryCategoryPills">
+                        <button type="button" data-gcat="all" class="sub-pill active px-3 py-2 rounded-xl text-xs font-bold bg-slate-200 text-slate-700 transition">الكل (14)</button>
+                        <button type="button" data-gcat="wheel" class="sub-pill px-3 py-2 rounded-xl text-xs font-bold bg-slate-200 text-slate-700 transition">🛞 الدولاب والحركة</button>
+                        <button type="button" data-gcat="pulley" class="sub-pill px-3 py-2 rounded-xl text-xs font-bold bg-slate-200 text-slate-700 transition">⚙️ البكرة وأجزاؤها</button>
+                        <button type="button" data-gcat="systems" class="sub-pill px-3 py-2 rounded-xl text-xs font-bold bg-slate-200 text-slate-700 transition">🏗️ أنظمة البكرات والقوى</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Glossary Cards Grid -->
+            <div id="glossaryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SECTION 6: الاختبار التقييمي الشامل -->
+        <!-- ========================================== -->
+        <section id="sec-quiz" class="lesson-section hidden space-y-6">
+            <div class="bg-gradient-to-l from-amber-50 to-teal-50 border border-amber-200 rounded-2xl p-5 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-amber-600 text-white mb-2">
+                        🏆 التقويم الختامي التفاعلي
+                    </span>
+                    <h2 class="text-xl sm:text-2xl font-black text-slate-900">اختبر معلوماتك في درس «عالم من العجلات والبكرات»</h2>
+                    <p class="text-xs sm:text-sm text-slate-700 mt-1">
+                        أجب عن الأسئلة الثمانية الشاملة لجميع عناصر الدرس لتحصل على نتيجتك الفورية والتغذية الراجعة التفصيلية.
+                    </p>
+                </div>
+                <div class="bg-white px-4 py-2.5 rounded-xl border border-amber-300 shadow-sm text-center shrink-0">
+                    <div class="text-xs text-slate-500 font-bold">النتيجة الحالية</div>
+                    <div id="quizScoreBadge" class="text-xl font-black text-teal-700">0 / 8</div>
+                </div>
+            </div>
+
+            <!-- Student Name Input for Certificate -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div class="flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-700 w-full sm:w-auto">
+                    <span>👨‍🎓 اسم الطالب البطل:</span>
+                    <input id="studentNameInput" type="text" placeholder="اكتب اسمك هنا ليظهر في لوحة التفوق..." class="flex-1 sm:w-64 rounded-xl border border-slate-300 px-3 py-2 text-xs sm:text-sm font-bold focus:outline-none focus:ring-2 focus:ring-teal-600">
+                </div>
+                <button type="button" id="resetQuizBtn" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-4 py-2 rounded-xl text-xs sm:text-sm transition shrink-0">
+                    🔄 إعادة محاولة الاختبار
+                </button>
+            </div>
+
+            <!-- Quiz Questions Container -->
+            <div id="quizQuestionsContainer" class="space-y-4">
+                <!-- Populated by JS -->
+            </div>
+
+            <!-- Final Certificate / Summary Box -->
+            <div id="quizCertificateBox" class="hidden bg-gradient-to-br from-teal-900 via-emerald-900 to-slate-900 text-white rounded-2xl p-6 border-4 border-amber-400 shadow-xl text-center space-y-3">
+                <div class="text-4xl">🎖️</div>
+                <h3 class="text-2xl font-black text-amber-300">شهادة إتقان درس «عالم من العجلات والبكرات»</h3>
+                <p id="certStudentLine" class="text-base sm:text-lg font-bold text-white"></p>
+                <p id="certScoreLine" class="text-sm sm:text-base text-teal-100"></p>
+                <div class="pt-2 text-xs sm:text-sm text-amber-200 font-bold">
+                    إشراف وإعداد: الأستاذ إياد السوقي — مدرسة ذكور جنين الأساسية
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 border-t border-slate-800 mt-10">
+        <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs">
+            <div class="font-bold text-white">
+                📚 درس تفاعلي متكامل: عالم من العجلات والبكرات — منهاج التكنولوجيا الفلسطيني (الصف السادس الأساسي)
+            </div>
+            <div class="text-amber-400 font-extrabold">
+                إعداد الأستاذ: إياد السوقي | مدرسة ذكور جنين الأساسية
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ==========================================
+        // Web Audio Synthesizer for Interactive Sounds
+        // ==========================================
+        let soundEnabled = true;
+        let audioCtx = null;
+
+        function playTone(freq = 520, duration = 0.1, type = 'sine') {
+            if (!soundEnabled) return;
+            try {
+                if (!audioCtx) {
+                    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                    if (AudioContextClass) audioCtx = new AudioContextClass();
+                }
+                if (!audioCtx) return;
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = type;
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + duration);
+            } catch (e) {
+                // Ignore audio context restrictions
+            }
+        }
+
+        document.getElementById('soundToggleBtn').addEventListener('click', () => {
+            soundEnabled = !soundEnabled;
+            document.getElementById('soundIconOn').classList.toggle('hidden', !soundEnabled);
+            document.getElementById('soundIconOff').classList.toggle('hidden', soundEnabled);
+            if (soundEnabled) playTone(600, 0.12, 'triangle');
+        });
+
+        // ==========================================
+        // Section Navigation & Progress Tracking
+        // ==========================================
+        const visitedSections = new Set(['wheel']);
+        const sectionTitles = {
+            wheel: 'القسم الأول: الدولاب (العجل) وحكمة «لا تخترع عجلاً»',
+            pulley: 'القسم الثاني: تعريف البكرة، أجزاؤها واستخداماتها في الواقع',
+            systems: 'القسم الثالث: أنواع نظم البكرات (الثابت، المتحرك، المركب)',
+            simulator: 'القسم الرابع: مختبر المحاكاة التفاعلي لنظم البكرات',
+            glossary: 'القسم الخامس: قاموس المصطلحات التفاعلي الشامل',
+            quiz: 'القسم السادس: الاختبار التقييمي الختامي'
+        };
+
+        function switchSection(tabId) {
+            playTone(480, 0.08, 'sine');
+            visitedSections.add(tabId);
+
+            // Hide all sections & show target
+            document.querySelectorAll('.lesson-section').forEach(sec => sec.classList.add('hidden'));
+            const targetSec = document.getElementById('sec-' + tabId);
+            if (targetSec) targetSec.classList.remove('hidden');
+
+            // Update active tab button
+            document.querySelectorAll('#mainTabs .tab-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId);
+            });
+
+            // Update label & progress bar
+            document.getElementById('currentSectionLabel').textContent = sectionTitles[tabId] || '';
+            const pct = Math.min(100, Math.round((visitedSections.size / 6) * 100));
+            document.getElementById('lessonProgressBar').style.width = pct + '%';
+            document.getElementById('lessonProgressText').textContent = pct + '%';
+        }
+
+        document.querySelectorAll('#mainTabs .tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => switchSection(btn.getAttribute('data-tab')));
+        });
+
+        document.querySelectorAll('.nav-jump-btn').forEach(btn => {
+            btn.addEventListener('click', () => switchSection(btn.getAttribute('data-goto')));
+        });
+
+        // ==========================================
+        // Section 1: "Don't Reinvent the Wheel" & Mini Wheel Friction Lab
+        // ==========================================
+        const adviceFeedback = document.getElementById('adviceFeedback');
+        document.getElementById('adviceBtnCorrect').addEventListener('click', () => {
+            playTone(680, 0.15, 'triangle');
+            adviceFeedback.className = 'text-xs font-bold p-2.5 rounded-lg mt-2 bg-emerald-100 text-emerald-900 border border-emerald-300';
+            adviceFeedback.textContent = '✅ أحسنت! هذه هي الحكمة الصحيحة: «لا تخترع عجلاً»، بل ابدأ من حيث انتهى الآخرون واستفد من العجلة الدائرية لتطوير عربتك وتوفير وقتك وجهدك.';
+        });
+        document.getElementById('adviceBtnWrong').addEventListener('click', () => {
+            playTone(260, 0.18, 'sawtooth');
+            adviceFeedback.className = 'text-xs font-bold p-2.5 rounded-lg mt-2 bg-amber-100 text-amber-900 border border-amber-300';
+            adviceFeedback.textContent = '💡 تذكّر الحكمة: إضاعة الوقت في تجريب أشكال غير مجدية هو إهدار للجهد! نقول له «لا تخترع عجلاً» واستخدم العجلات الدائرية التي أثبتت كفاءتها.';
+        });
+
+        let currentWheelMode = 'ground';
+        let cartX = 80;
+        let cartAnimId = null;
+
+        const wheelModeData = {
+            ground: {
+                title: '1. السحب المباشر على الأرض (بدون عجلات)',
+                desc: 'عند سحب الحجر مباشرة على الأرض، تنشأ قوة احتكاك كبيرة جداً تعيق الحركة، فنحتاج إلى جهد عضلي هائل ووقت طويل لتحريكه مسافة قصيرة.',
+                frictionText: 'مرتفع جداً (90%)',
+                frictionWidth: '90%',
+                easeText: 'ضعيفة جداً (15%)',
+                easeWidth: '15%',
+                forceBadge: 'قوة سحب عالية جداً (900N)',
+                speed: 0.7
+            },
+            logs: {
+                title: '2. الدحرجة على جذوع الأشجار الأسطوانية (بداية الفكرة)',
+                desc: 'لاحظ الإنسان القديم أن وضع جذوع الأشجار الأسطوانية تحت الأحمال يحوّل الاحتكاك الانزلاقي إلى تدحرجي، مما سهّل تحريك الصخور لبناء الحضارات.',
+                frictionText: 'متوسط (45%)',
+                frictionWidth: '45%',
+                easeText: 'متوسطة (60%)',
+                easeWidth: '60%',
+                forceBadge: 'قوة سحب متوسطة (400N)',
+                speed: 2.0
+            },
+            wheel: {
+                title: '3. العربة ذات الدولاب (العجل) والمحور',
+                desc: 'باختراع الدولاب المتصل بمحور ارتكاز، انخفض الاحتكاك إلى أدنى درجة، وأصبح نقل الحمولات الثقيلة سريعاً وسهلاً بأقل جهد بشري!',
+                frictionText: 'منخفض جداً (10%)',
+                frictionWidth: '10%',
+                easeText: 'ممتازة وعالية جداً (95%)',
+                easeWidth: '95%',
+                forceBadge: 'قوة سحب قليلة ومريحة (100N)',
+                speed: 4.2
+            }
+        };
+
+        function updateWheelModeUI(mode) {
+            currentWheelMode = mode;
+            if (cartAnimId) cancelAnimationFrame(cartAnimId);
+            cartX = 80;
+            document.getElementById('wheelCartGroup').setAttribute('transform', `translate(${cartX}, 0)`);
+
+            document.querySelectorAll('.wheel-mode-btn').forEach(b => {
+                const active = b.getAttribute('data-wheel-mode') === mode;
+                b.className = active
+                    ? 'wheel-mode-btn active bg-teal-700 text-white text-xs font-bold px-3 py-2 rounded-xl transition'
+                    : 'wheel-mode-btn bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold px-3 py-2 rounded-xl transition';
+            });
+
+            document.getElementById('frictionSparks').classList.toggle('hidden', mode !== 'ground');
+            document.getElementById('logsGroup').classList.toggle('hidden', mode !== 'logs');
+            document.getElementById('modernWheelGroup').classList.toggle('hidden', mode !== 'wheel');
+
+            const info = wheelModeData[mode];
+            document.getElementById('wheelExpTitle').textContent = info.title;
+            document.getElementById('wheelExpDesc').textContent = info.desc;
+            document.getElementById('wheelFrictionLabel').textContent = info.frictionText;
+            document.getElementById('wheelFrictionBar').style.width = info.frictionWidth;
+            document.getElementById('wheelEaseLabel').textContent = info.easeText;
+            document.getElementById('wheelEaseBar').style.width = info.easeWidth;
+            document.getElementById('wheelForceBadge').textContent = info.forceBadge;
+        }
+
+        document.querySelectorAll('.wheel-mode-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                playTone(520, 0.08, 'sine');
+                updateWheelModeUI(btn.getAttribute('data-wheel-mode'));
+            });
+        });
+
+        document.getElementById('pushCartBtn').addEventListener('click', () => {
+            playTone(600, 0.12, 'triangle');
+            if (cartAnimId) cancelAnimationFrame(cartAnimId);
+            const speed = wheelModeData[currentWheelMode].speed;
+            function step() {
+                if (cartX < 330) {
+                    cartX += speed;
+                    document.getElementById('wheelCartGroup').setAttribute('transform', `translate(${cartX}, 0)`);
+                    const angle = (cartX - 80) * 3;
+                    const wheels = document.querySelectorAll('#modernWheelGroup .rolling-wheel');
+                    if (wheels.length === 2) {
+                        wheels[0].setAttribute('transform', `translate(50, 150) rotate(${angle})`);
+                        wheels[1].setAttribute('transform', `translate(130, 150) rotate(${angle})`);
+                    }
+                    cartAnimId = requestAnimationFrame(step);
+                }
+            }
+            step();
+        });
+
+        document.getElementById('resetCartBtn').addEventListener('click', () => {
+            playTone(400, 0.08, 'sine');
+            if (cartAnimId) cancelAnimationFrame(cartAnimId);
+            cartX = 80;
+            document.getElementById('wheelCartGroup').setAttribute('transform', 'translate(80, 0)');
+        });
+
+        // ==========================================
+        // Section 2: Pulley Parts & Real-World Applications
+        // ==========================================
+        const pulleyPartsInfo = {
+            wheel: {
+                title: '1. جسم البكرة ومجرى الحبل (الأخدود الغائر)',
+                desc: 'قرص دائري على شكل عجل تحتوي حافته الخارجية على تجويف غائر يُسمى «مجرى البكرة»، وظيفته احتضان الحبل أو السلك المعدني ومنع انزلاقه أثناء الدوران.'
+            },
+            axle: {
+                title: '2. محور البكرة (نقطة الارتكاز)',
+                desc: 'القضيب المركزي الذي يمر في مركز البكرة وتدور حوله. يمثل «نقطة الارتكاز» في مبدأ العتلة، ويكون إما ثابتاً في مكانه أو متحركاً مع الثقل.'
+            },
+            rope: {
+                title: '3. الحبل أو الحزام أو السلسلة المعدنية',
+                desc: 'الوسيط الذي يلتف حول محيط البكرة (في مجراها) لنقل قوة السحب من يد الإنسان أو المحرك إلى الثقل المراد رفعه أو العجلة المراد تدويرها.'
+            },
+            force: {
+                title: '4. ذراع القوة وذراع المقاومة',
+                desc: 'نصف قطر البكرة من جهة سحب اليد يُسمى «ذراع القوة»، ونصف قطرها من جهة الثقل يُسمى «ذراع المقاومة»، وتساويهما في البكرة الثابتة يجعل القوة مساوية للمقاومة.'
+            }
+        };
+
+        document.querySelectorAll('.pulley-part-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                playTone(550, 0.08, 'sine');
+                const part = btn.getAttribute('data-part');
+                document.querySelectorAll('.pulley-part-btn').forEach(b => {
+                    const active = b.getAttribute('data-part') === part;
+                    b.className = active
+                        ? 'pulley-part-btn bg-teal-700 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition'
+                        : 'pulley-part-btn bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold px-3 py-1.5 rounded-lg transition';
+                });
+                document.getElementById('pulleyPartTitle').textContent = pulleyPartsInfo[part].title;
+                document.getElementById('pulleyPartDesc').textContent = pulleyPartsInfo[part].desc;
+            });
+        });
+
+        const realWorldExamples = [
+            {
+                icon: '🇵🇸',
+                title: 'سارية العلم في المدرسة',
+                system: 'نظام بكرة ثابتة',
+                summary: 'توجد بكرة ثابتة في أعلى سارية العلم؛ يسحب الطالب الحبل للأسفل وهو واقف على الأرض فيرتفع العلم نحو الأعلى بسهولة وأمان.',
+                benefit: 'تغيير اتجاه القوة من الأعلى إلى الأسفل.'
+            },
+            {
+                icon: '🪣',
+                title: 'استخراج الماء من البئر (الدلو)',
+                system: 'نظام بكرة ثابتة',
+                summary: 'بدلاً من الانحناء الخطر ورفع الدلو الثقيل للأعلى مباشرة، يمر الحبل حول بكرة معلقة فوق البئر فيسحب الإنسان الحبل للأسفل ليرتفع الدلو.',
+                benefit: 'تغيير اتجاه القوة وتوفير الأمان.'
+            },
+            {
+                icon: '🏗️',
+                title: 'رافعات البناء والموانئ والونش (البلانكو)',
+                system: 'نظام بكرات مركب',
+                summary: 'تستخدم الرافعات وأجهزة الـ«بلانكو» في ورش البناء وميكانيك السيارات نظاماً مركباً من عدة بكرات لرفع الحديد والمحركات الثقيلة جداً.',
+                benefit: 'تقليل الجهد المبذول بشكل كبير + تغيير اتجاه القوة.'
+            },
+            {
+                icon: '🚲',
+                title: 'الدراجة الهوائية والغسالة الكهربائية',
+                system: 'نقل الحركة بالبكرات والأحزمة/السلاسل',
+                summary: 'في الدراجة ينقل الجنزير الحركة من المسنن الأمامي إلى الخلفي، وفي الغسالة ينقل الحزام المطاطي الحركة من المحرك إلى حوض الغسيل.',
+                benefit: 'توصيل ونقل الحركة من مكان لآخر.'
+            },
+            {
+                icon: '🏢',
+                title: 'المصاعد الكهربائية في البنايات',
+                system: 'نظام بكرات وكوابل فولاذية',
+                summary: 'تعتمد المصاعد على بكرات قوية تلتف حولها أسلاك فولاذية متصلة بكابينة المصعد وثقل الموازنة لرفع الركاب بين الطوابق بسلاسة.',
+                benefit: 'توزيع الحمل وتقليل الجهد على المحرك.'
+            },
+            {
+                icon: '🏋️',
+                title: 'أجهزة التمارين الرياضية والستائر',
+                system: 'أنظمة بكرات متنوعة',
+                summary: 'تُستخدم البكرات في أجهزة اللياقة البدنية لتوجيه حركة الأوزان بسلاسة، كما تُستخدم في فتح وإغلاق الستائر المنزلية والمسرحية.',
+                benefit: 'التحكم السلس باتجاه القوة والحركة.'
+            }
+        ];
+
+        const realWorldContainer = document.getElementById('realWorldCards');
+        realWorldExamples.forEach((item) => {
+            const card = document.createElement('div');
+            card.className = 'bg-slate-50 hover:bg-teal-50/60 border border-slate-200 hover:border-teal-300 rounded-2xl p-4 cursor-pointer transition card-hover flex flex-col justify-between';
+            card.innerHTML = `
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-3xl">${item.icon}</span>
+                        <span class="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-teal-100 text-teal-800">${item.system}</span>
+                    </div>
+                    <h4 class="font-extrabold text-slate-900 text-base mb-1">${item.title}</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">${item.summary}</p>
+                </div>
+                <div class="mt-3 pt-2.5 border-t border-slate-200/80 text-xs font-bold text-amber-800 flex items-center gap-1">
+                    <span>🎯 الفائدة:</span>
+                    <span>${item.benefit}</span>
+                </div>
+            `;
+            card.addEventListener('click', () => playTone(560, 0.06, 'sine'));
+            realWorldContainer.appendChild(card);
+        });
+
+        // Jump from Section 3 preset buttons to Simulator
+        document.querySelectorAll('.open-in-sim-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const preset = btn.getAttribute('data-sim-preset');
+                switchSection('simulator');
+                setSimulatorType(preset);
+            });
+        });
+
+        // ==========================================
+        // Section 4: Interactive Pulley Simulator Engine
+        // ==========================================
+        let simType = 'fixed'; // 'fixed', 'movable', 'compound2', 'compound4'
+        let simLoadN = 120;
+        let simLiftPct = 0; // 0 to 100
+        let simAutoRunning = false;
+        let simAutoDir = 1;
+        let simAnimFrame = null;
+
+        const simConfig = {
+            fixed: {
+                title: 'محاكاة حية: 1. نظام البكرة الثابتة (بكرة واحدة ثابتة)',
+                ma: 1,
+                savingText: '0% (لا يوفر جهداً)',
+                maText: '1 (حبل حامل واحد)',
+                directionText: 'إلى الأسفل ↓ (تغيير اتجاه القوة)',
+                explanation: '💡 تحليل النظام الثابت: البكرة مثبتة في الأعلى وتدور حول محور ثابت؛ وظيفتها تغيير اتجاه القوة فقط (نسحب للأسفل ليرتفع الثقل للأعلى)، وتكون القوة اللازمة للسحب مساوية لوزن الثقل.'
+            },
+            movable: {
+                title: 'محاكاة حية: 2. نظام البكرة المتحركة (بكرة حرة تتحرك مع الثقل)',
+                ma: 2,
+                savingText: '50% (يختصر نصف الجهد!)',
+                maText: '2 (فرعان من الحبل يحملان الثقل)',
+                directionText: 'إلى الأعلى ↑ (نفس اتجاه رفع الثقل)',
+                explanation: '💡 تحليل النظام المتحرك: البكرة متصلة بالثقل وتتحرك معه للأعلى؛ يتوزع وزن الثقل بالتساوي على فرعي الحبل، فنحتاج إلى نصف القوة فقط لرفعه!'
+            },
+            compound2: {
+                title: 'محاكاة حية: 3. النظام المركب الثنائي (بكرة ثابتة + بكرة متحركة)',
+                ma: 2,
+                savingText: '50% + تغيير اتجاه السحب للأسفل',
+                maText: '2 (دمج الثابت والمتحرك)',
+                directionText: 'إلى الأسفل ↓ (مريح وآمن)',
+                explanation: '💡 تحليل النظام المركب (بكرتان): يجمع بين ميزة البكرة المتحركة (تقليل القوة إلى النصف) وميزة البكرة الثابتة (تغيير اتجاه السحب للأسفل بسهولة).'
+            },
+            compound4: {
+                title: 'محاكاة حية: 4. النظام المركب المتقدم (4 بكرات: 2 ثابتة + 2 متحركة)',
+                ma: 4,
+                savingText: '75% (تحتاج ربع القوة فقط!)',
+                maText: '4 (أربعة حبال تتقاسم الحمل)',
+                directionText: 'إلى الأسفل ↓ (أقصى توفير للجهد)',
+                explanation: '💡 القاعدة الذهبية للنظام المركب: كلما زاد عدد البكرات في النظام المركب، توزع الحمل على عدد أكبر من الحبال، فخفّ الثقل واحتجنا إلى ربع القوة فقط لرفعه!'
+            }
+        };
+
+        function setSimulatorType(type) {
+            simType = type;
+            playTone(540, 0.09, 'triangle');
+            document.querySelectorAll('.sim-type-btn').forEach(btn => {
+                const active = btn.getAttribute('data-sim-type') === type;
+                btn.className = active
+                    ? 'sim-type-btn active bg-amber-500 text-slate-950 font-extrabold text-xs sm:text-sm px-3.5 py-2 rounded-xl shadow transition'
+                    : 'sim-type-btn bg-teal-800 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm px-3.5 py-2 rounded-xl transition';
+            });
+            updateSimulator();
+        }
+
+        document.querySelectorAll('.sim-type-btn').forEach(btn => {
+            btn.addEventListener('click', () => setSimulatorType(btn.getAttribute('data-sim-type')));
+        });
+
+        document.getElementById('simWeightInput').addEventListener('input', (e) => {
+            simLoadN = parseInt(e.target.value, 10);
+            updateSimulator();
+        });
+
+        document.getElementById('simPullInput').addEventListener('input', (e) => {
+            simLiftPct = parseInt(e.target.value, 10);
+            updateSimulator();
+        });
+
+        document.getElementById('simResetBtn').addEventListener('click', () => {
+            playTone(380, 0.08, 'sine');
+            stopAutoSim();
+            simLiftPct = 0;
+            document.getElementById('simPullInput').value = 0;
+            updateSimulator();
+        });
+
+        function stopAutoSim() {
+            simAutoRunning = false;
+            if (simAnimFrame) cancelAnimationFrame(simAnimFrame);
+            document.getElementById('simAutoLiftLabel').textContent = 'تشغيل الرفع التلقائي';
+        }
+
+        document.getElementById('simAutoLiftBtn').addEventListener('click', () => {
+            if (simAutoRunning) {
+                stopAutoSim();
+                return;
+            }
+            playTone(640, 0.1, 'triangle');
+            simAutoRunning = true;
+            document.getElementById('simAutoLiftLabel').textContent = 'إيقاف مؤقت ⏸️';
+            function animateLoop() {
+                if (!simAutoRunning) return;
+                simLiftPct += simAutoDir * 0.6;
+                if (simLiftPct >= 100) {
+                    simLiftPct = 100;
+                    simAutoDir = -1;
+                } else if (simLiftPct <= 0) {
+                    simLiftPct = 0;
+                    simAutoDir = 1;
+                }
+                document.getElementById('simPullInput').value = Math.round(simLiftPct);
+                updateSimulator();
+                simAnimFrame = requestAnimationFrame(animateLoop);
+            }
+            animateLoop();
+        });
+
+        function drawPulleyWheel(cx, cy, radius, angleDeg, colorMain = '#0d9488', label = '') {
+            return `
+                <g transform="translate(${cx}, ${cy})">
+                    <circle cx="0" cy="0" r="${radius}" fill="${colorMain}" stroke="#5eead4" stroke-width="3.5"/>
+                    <circle cx="0" cy="0" r="${radius - 7}" fill="#115e59" stroke="#99f6e4" stroke-width="1.5" stroke-dasharray="4,4"/>
+                    <g transform="rotate(${angleDeg})">
+                        <line x1="-${radius - 4}" y1="0" x2="${radius - 4}" y2="0" stroke="#f59e0b" stroke-width="2.5"/>
+                        <line x1="0" y1="-${radius - 4}" x2="0" y2="${radius - 4}" stroke="#f59e0b" stroke-width="2.5"/>
+                    </g>
+                    <circle cx="0" cy="0" r="6" fill="#f8fafc" stroke="#0f172a" stroke-width="2"/>
+                    ${label ? `<text x="0" y="-${radius + 8}" text-anchor="middle" fill="#a7f3d0" font-size="11" font-weight="bold">${label}</text>` : ''}
+                </g>
+            `;
+        }
+
+        function drawWeightBox(cx, topY, loadN) {
+            return `
+                <g transform="translate(${cx}, ${topY})">
+                    <line x1="0" y1="0" x2="0" y2="16" stroke="#94a3b8" stroke-width="4"/>
+                    <rect x="-42" y="16" width="84" height="54" rx="8" fill="#0284c7" stroke="#bae6fd" stroke-width="2.5"/>
+                    <text x="0" y="39" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">الثقل (المقاومة)</text>
+                    <text x="0" y="58" text-anchor="middle" fill="#fde047" font-size="13" font-weight="bold">${loadN} نيوتن</text>
+                </g>
+            `;
+        }
+
+        function drawDynamometer(cx, cy, effortN, pullDirDown = true) {
+            const arrow = pullDirDown
+                ? `<polygon points="0,48 -8,34 8,34" fill="#f43f5e"/>`
+                : `<polygon points="0,-48 -8,-34 8,-34" fill="#f43f5e"/>`;
+            return `
+                <g transform="translate(${cx}, ${cy})">
+                    <rect x="-46" y="-22" width="92" height="44" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="3"/>
+                    <text x="0" y="-4" text-anchor="middle" fill="#78350f" font-size="10" font-weight="bold">القوة المبذولة</text>
+                    <text x="0" y="13" text-anchor="middle" fill="#b45309" font-size="13" font-weight="black">${effortN} N</text>
+                    ${arrow}
+                </g>
+            `;
+        }
+
+        function updateSimulator() {
+            const cfg = simConfig[simType];
+            const effortN = Math.round(simLoadN / cfg.ma);
+            const kg = (simLoadN / 10).toFixed(0);
+            const liftMeters = ((simLiftPct / 100) * 2.0).toFixed(2);
+            const ropeMeters = (liftMeters * cfg.ma).toFixed(2);
+
+            // Update Text Displays
+            document.getElementById('simWeightDisplay').textContent = `${simLoadN} نيوتن (${kg} كغم)`;
+            document.getElementById('simPullDisplay').textContent = `${Math.round(simLiftPct)}%`;
+            document.getElementById('metricLoad').textContent = `${simLoadN} نيوتن`;
+            document.getElementById('metricEffort').textContent = `${effortN} نيوتن`;
+            document.getElementById('metricSaving').textContent = cfg.savingText;
+            document.getElementById('metricMA').textContent = cfg.maText;
+            document.getElementById('metricDirection').textContent = cfg.directionText;
+            document.getElementById('metricLoadHeight').textContent = `${liftMeters} متر`;
+            document.getElementById('metricRopePulled').textContent = `${ropeMeters} متر`;
+            document.getElementById('simExplanationBanner').innerHTML = cfg.explanation;
+            document.getElementById('simCanvasTitle').textContent = cfg.title;
+            document.getElementById('simDynamoBadge').textContent = `قراءة الميزان النابضي (القوة) = ${effortN} N`;
+
+            // Render SVG Scene based on simType & simLiftPct
+            const scene = document.getElementById('simDynamicScene');
+            const liftPx = (simLiftPct / 100) * 150; // Moves up by up to 150px
+            const rotAngle = simLiftPct * 3.6;
+
+            if (simType === 'fixed') {
+                const pulleyX = 300, pulleyY = 95, r = 38;
+                const weightTopY = 300 - liftPx;
+                const pullY = 175 + liftPx * 0.9;
+                scene.innerHTML = `
+                    <!-- Fixed Bracket -->
+                    <line x1="${pulleyX}" y1="36" x2="${pulleyX}" y2="${pulleyY}" stroke="#94a3b8" stroke-width="7"/>
+                    <!-- Rope -->
+                    <line x1="${pulleyX - r}" y1="${pulleyY}" x2="${pulleyX - r}" y2="${weightTopY}" stroke="#fbbf24" stroke-width="5"/>
+                    <path d="M ${pulleyX - r} ${pulleyY} A ${r} ${r} 0 0 1 ${pulleyX + r} ${pulleyY}" fill="none" stroke="#fbbf24" stroke-width="5"/>
+                    <line x1="${pulleyX + r}" y1="${pulleyY}" x2="${pulleyX + r}" y2="${pullY}" stroke="#fbbf24" stroke-width="5"/>
+                    <!-- Pulley -->
+                    ${drawPulleyWheel(pulleyX, pulleyY, r, rotAngle, '#0284c7', 'بكرة ثابتة')}
+                    <!-- Weight -->
+                    ${drawWeightBox(pulleyX - r, weightTopY, simLoadN)}
+                    <!-- Dynamometer / Hand Pull -->
+                    ${drawDynamometer(pulleyX + r + 55, pullY, effortN, true)}
+                    <line x1="${pulleyX + r}" y1="${pullY}" x2="${pulleyX + r + 9}" y2="${pullY}" stroke="#f59e0b" stroke-width="3"/>
+                `;
+            } else if (simType === 'movable') {
+                const movX = 300, r = 38;
+                const movY = 275 - liftPx;
+                const pullHandY = Math.max(70, movY - 95);
+                scene.innerHTML = `
+                    <!-- Ceiling Anchor on Left -->
+                    <circle cx="${movX - r}" cy="36" r="6" fill="#f59e0b"/>
+                    <!-- Rope from Ceiling Anchor down under Movable Pulley and up to Hand -->
+                    <line x1="${movX - r}" y1="36" x2="${movX - r}" y2="${movY}" stroke="#fbbf24" stroke-width="5"/>
+                    <path d="M ${movX - r} ${movY} A ${r} ${r} 0 0 0 ${movX + r} ${movY}" fill="none" stroke="#fbbf24" stroke-width="5"/>
+                    <line x1="${movX + r}" y1="${movY}" x2="${movX + r}" y2="${pullHandY}" stroke="#fbbf24" stroke-width="5"/>
+                    <!-- Movable Pulley -->
+                    ${drawPulleyWheel(movX, movY, r, -rotAngle, '#059669', 'بكرة متحركة مع الثقل')}
+                    <!-- Weight attached to Movable Pulley Axle -->
+                    ${drawWeightBox(movX, movY + 8, simLoadN)}
+                    <!-- Dynamometer Pulling UP -->
+                    ${drawDynamometer(movX + r + 60, pullHandY, effortN, false)}
+                    <line x1="${movX + r}" y1="${pullHandY}" x2="${movX + r + 14}" y2="${pullHandY}" stroke="#f59e0b" stroke-width="3"/>
+                `;
+            } else if (simType === 'compound2') {
+                const fixedX = 340, fixedY = 90, r = 34;
+                const movX = 250, movY = 275 - liftPx;
+                const pullY = 175 + liftPx * 0.9;
+                scene.innerHTML = `
+                    <!-- Fixed Pulley Bracket -->
+                    <line x1="${fixedX}" y1="36" x2="${fixedX}" y2="${fixedY}" stroke="#94a3b8" stroke-width="7"/>
+                    <!-- Anchor on Ceiling for Left Rope -->
+                    <circle cx="${movX - r}" cy="36" r="6" fill="#f59e0b"/>
+                    <!-- Ropes -->
+                    <line x1="${movX - r}" y1="36" x2="${movX - r}" y2="${movY}" stroke="#fbbf24" stroke-width="5"/>
+                    <path d="M ${movX - r} ${movY} A ${r} ${r} 0 0 0 ${movX + r} ${movY}" fill="none" stroke="#fbbf24" stroke-width="5"/>
+                    <line x1="${movX + r}" y1="${movY}" x2="${fixedX - r}" y2="${fixedY}" stroke="#fbbf24" stroke-width="5"/>
+                    <path d="M ${fixedX - r} ${fixedY} A ${r} ${r} 0 0 1 ${fixedX + r} ${fixedY}" fill="none" stroke="#fbbf24" stroke-width="5"/>
+                    <line x1="${fixedX + r}" y1="${fixedY}" x2="${fixedX + r}" y2="${pullY}" stroke="#fbbf24" stroke-width="5"/>
+                    <!-- Pulleys -->
+                    ${drawPulleyWheel(fixedX, fixedY, r, rotAngle * 2, '#0284c7', 'بكرة ثابتة')}
+                    ${drawPulleyWheel(movX, movY, r, -rotAngle, '#d97706', 'بكرة متحركة')}
+                    <!-- Weight -->
+                    ${drawWeightBox(movX, movY + 6, simLoadN)}
+                    <!-- Dynamometer Pulling DOWN -->
+                    ${drawDynamometer(fixedX + r + 60, pullY, effortN, true)}
+                    <line x1="${fixedX + r}" y1="${pullY}" x2="${fixedX + r + 14}" y2="${pullY}" stroke="#f59e0b" stroke-width="3"/>
+                `;
+            } else if (simType === 'compound4') {
+                const movY = 280 - liftPx;
+                const pullY = 175 + liftPx * 0.9;
+                scene.innerHTML = `
+                    <!-- Top Fixed Brackets -->
+                    <line x1="220" y1="36" x2="220" y2="85" stroke="#94a3b8" stroke-width="6"/>
+                    <line x1="330" y1="36" x2="330" y2="85" stroke="#94a3b8" stroke-width="6"/>
+                    <!-- 4 Supporting Rope Strands -->
+                    <line x1="175" y1="36" x2="175" y2="${movY}" stroke="#fbbf24" stroke-width="4.5"/>
+                    <line x1="215" y1="${movY}" x2="215" y2="85" stroke="#fbbf24" stroke-width="4.5"/>
+                    <line x1="255" y1="85" x2="255" y2="${movY}" stroke="#fbbf24" stroke-width="4.5"/>
+                    <line x1="305" y1="${movY}" x2="305" y2="85" stroke="#fbbf24" stroke-width="4.5"/>
+                    <!-- Pull Rope Strand -->
+                    <line x1="358" y1="85" x2="358" y2="${pullY}" stroke="#fbbf24" stroke-width="5"/>
+
+                    <!-- 2 Fixed Pulleys at Top -->
+                    ${drawPulleyWheel(235, 85, 26, rotAngle * 3, '#0284c7', 'ثابتة 1')}
+                    ${drawPulleyWheel(330, 85, 28, rotAngle * 4, '#0284c7', 'ثابتة 2')}
+
+                    <!-- Movable Frame Beam -->
+                    <rect x="170" y="${movY + 22}" width="140" height="10" rx="4" fill="#f59e0b"/>
+                    <!-- 2 Movable Pulleys -->
+                    ${drawPulleyWheel(195, movY, 24, -rotAngle * 2, '#d97706', 'متحركة 1')}
+                    ${drawPulleyWheel(280, movY, 24, -rotAngle * 3, '#d97706', 'متحركة 2')}
+
+                    <!-- Weight Box Attached to Shared Movable Frame -->
+                    ${drawWeightBox(240, movY + 26, simLoadN)}
+
+                    <!-- Dynamometer Pulling DOWN -->
+                    ${drawDynamometer(425, pullY, effortN, true)}
+                    <line x1="358" y1="${pullY}" x2="379" y2="${pullY}" stroke="#f59e0b" stroke-width="3"/>
+                `;
+            }
+        }
+
+        // Initialize simulator on load
+        updateSimulator();
+
+        // ==========================================
+        // Section 5: Interactive Glossary Data & Filtering
+        // ==========================================
+        const glossaryTerms = [
+            {
+                term: 'الدولاب (العجل)',
+                category: 'wheel',
+                catLabel: '🛞 الدولاب والحركة',
+                definition: 'قرص دائري أو جسم مستدير يدور حول محور ارتكاز يمر في مركزه، يُستخدم لتقليل الاحتكاك وتسهيل نقل وتحريك الأجسام الثقيلة.',
+                example: 'عجلات السيارات، الدراجات، والعربات الزراعية.'
+            },
+            {
+                term: '«لا تخترع عجلاً»',
+                category: 'wheel',
+                catLabel: '🛞 الدولاب والحركة',
+                definition: 'عبارة وحكمة تُقال لمن يضيع وقته وجهده في ابتكار أمر تم اكتشافه وإثبات نجاحه مسبقاً، وتعني: ابدأ من حيث انتهى الآخرون وطوّر عليه.',
+                example: 'استخدام العجلات والمحركات المتوفرة لبناء روبوت جديد بدلاً من إعادة اختراع العجلة من الصفر.'
+            },
+            {
+                term: 'محور الدوران (نقطة الارتكاز)',
+                category: 'wheel',
+                catLabel: '🛞 الدولاب والحركة',
+                definition: 'القضيب المركزي الذي يمر في وسط العجلة أو البكرة وتدور حوله، ويمثل نقطة الارتكاز في البكرة.',
+                example: 'المحور الفولاذي الذي يربط عجلتا العربة أو يثبت البكرة.'
+            },
+            {
+                term: 'قوة الاحتكاك',
+                category: 'wheel',
+                catLabel: '🛞 الدولاب والحركة',
+                definition: 'قوة تنشأ بين السطوح المتلامسة وتعيق حركتها. جاء اختراع الدولاب ليقلل هذه القوة إلى أدنى حد.',
+                example: 'صعوبة سحب صندوق ثقيل على الأرض الخشنة مقارنة بدحرجته على عجلات.'
+            },
+            {
+                term: 'البكرة',
+                category: 'pulley',
+                catLabel: '⚙️ البكرة وأجزاؤها',
+                definition: 'أداة ميكانيكية بسيطة على شكل عجل يدور حول محور، ويلتف حول محيطه (في مجراه) حبل أو حزام أو سلسلة معدنية.',
+                example: 'بكرة بئر الماء، وبكرة سارية العلم.'
+            },
+            {
+                term: 'مجرى البكرة (الأخدود)',
+                category: 'pulley',
+                catLabel: '⚙️ البكرة وأجزاؤها',
+                definition: 'التجويف الغائر على الحافة الخارجية لمحيط البكرة، وظيفته تثبيت الحبل أو السلسلة ومنع انزلاقها أثناء الدوران.',
+                example: 'الحافة الغائرة التي يستقر بداخلها حبل سارية العلم.'
+            },
+            {
+                term: 'ذراع القوة وذراع المقاومة',
+                category: 'pulley',
+                catLabel: '⚙️ البكرة وأجزاؤها',
+                definition: 'ذراع القوة هو نصف قطر البكرة من جانب السحب، وذراع المقاومة هو نصف قطرها من جانب الثقل المعلق.',
+                example: 'تساوي الذراعين في البكرة الثابتة يجعل القوة مساوية للمقاومة.'
+            },
+            {
+                term: 'نقل الحركة بالبكرات',
+                category: 'pulley',
+                catLabel: '⚙️ البكرة وأجزاؤها',
+                definition: 'استخدام بكرتين يربط بينهما حزام أو سلسلة معدنية لنقل الحركة الدورانية من محور قائد (المحرك) إلى محور منقاد.',
+                example: 'حزام الغسالة الكهربائية وجنزير الدراجة الهوائية.'
+            },
+            {
+                term: 'نظام البكرة الثابتة',
+                category: 'systems',
+                catLabel: '🏗️ أنظمة البكرات والقوى',
+                definition: 'نظام يتكون من بكرة يدور محورها في مكان ثابت لا ينتقل؛ يغيّر اتجاه القوة فقط (نسحب للأسفل ليرتفع الثقل للأعلى) ولا يقلل الوزن.',
+                example: 'سارية العلم في مدرسة ذكور جنين الأساسية.'
+            },
+            {
+                term: 'نظام البكرة المتحركة',
+                category: 'systems',
+                catLabel: '🏗️ أنظمة البكرات والقوى',
+                definition: 'نظام يتكون من بكرة ذات محور حر يتحرك وينتقل مع حركة الثقل؛ يوزع الحمل على فرعي الحبل فيقلل الجهد المبذول إلى النصف.',
+                example: 'البكرة السفلية المتصلة مباشرة بالخطاف الذي يحمل الثقل.'
+            },
+            {
+                term: 'نظام البكرات المركب',
+                category: 'systems',
+                catLabel: '🏗️ أنظمة البكرات والقوى',
+                definition: 'نظام يجمع بين البكرة الثابتة والبكرة المتحركة معاً في آنٍ واحد؛ فيغيّر اتجاه القوة ويقلل الجهد المبذول لرفع الأوزان الثقيلة.',
+                example: 'رافعات البناء والموانئ وأوناش رفع المحركات.'
+            },
+            {
+                term: 'البلانكو (الونش اليدوي)',
+                category: 'systems',
+                catLabel: '🏗️ أنظمة البكرات والقوى',
+                definition: 'أداة رفع ميكانيكية تعتمد على نظام البكرات المركب والسلاسل المعدنية لرفع الحمولات الثقيلة جداً بجهد بشري قليل.',
+                example: 'جهاز رفع محرك السيارة في كراجات الميكانيك.'
+            },
+            {
+                term: 'القوة والمقاومة (الثقل)',
+                category: 'systems',
+                catLabel: '🏗️ أنظمة البكرات والقوى',
+                definition: 'المقاومة هي وزن الجسم المراد رفعه، أما القوة فهي الجهد العضلي أو الميكانيكي المبذول لسحب الحبل ورفع الثقل.',
+                example: 'رفع حجر وزنه 100 نيوتن (مقاومة) بقوة سحب 50 نيوتن.'
+            },
+            {
+                term: 'الفائدة الميكانيكية للبكرات',
+                category: 'systems',
+                catLabel: '🏗️ أنظمة البكرات والقوى',
+                definition: 'نسبة مضاعفة القوة وتخفيف الحمل؛ وتزداد كلما زاد عدد البكرات والحبال الحاملة للثقل في النظام المركب.',
+                example: 'في نظام مركب رباعي تكون الفائدة الميكانيكية = 4 (نحتاج ربع الوزن فقط).'
+            }
+        ];
+
+        let currentGlossaryCat = 'all';
+        let currentGlossaryQuery = '';
+        let allFlipped = false;
+
+        function renderGlossary() {
+            const grid = document.getElementById('glossaryGrid');
+            grid.innerHTML = '';
+
+            const filtered = glossaryTerms.filter(item => {
+                const matchCat = currentGlossaryCat === 'all' || item.category === currentGlossaryCat;
+                const q = currentGlossaryQuery.trim();
+                const matchQuery = !q || item.term.includes(q) || item.definition.includes(q) || item.example.includes(q);
+                return matchCat && matchQuery;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<div class="col-span-full bg-white rounded-2xl p-8 text-center text-slate-500 font-bold border border-slate-200">لا توجد مصطلحات مطابقة لبحثك. جرّب كلمة أخرى!</div>`;
+                return;
+            }
+
+            filtered.forEach((item) => {
+                const card = document.createElement('div');
+                card.className = `flip-card cursor-pointer ${allFlipped ? 'flipped' : ''}`;
+                card.innerHTML = `
+                    <div class="flip-card-inner">
+                        <!-- Front: Term & Category -->
+                        <div class="flip-card-front bg-white border-2 border-teal-200 p-5 flex flex-col justify-between shadow-sm hover:border-teal-500 transition">
+                            <div>
+                                <div class="flex items-center justify-between gap-2 mb-3">
+                                    <span class="px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-teal-50 text-teal-800 border border-teal-200">${item.catLabel}</span>
+                                    <span class="text-[11px] font-bold text-amber-600">اضغط لقلب البطاقة 🔄</span>
+                                </div>
+                                <h4 class="text-lg font-black text-slate-900 mb-2">${item.term}</h4>
+                                <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">${item.definition}</p>
+                            </div>
+                            <div class="text-[11px] font-bold text-teal-700 pt-2 border-t border-slate-100">
+                                💡 اضغط لعرض المثال التطبيقي
+                            </div>
+                        </div>
+                        <!-- Back: Real Example & Takeaway -->
+                        <div class="flip-card-back bg-gradient-to-br from-teal-900 to-emerald-900 text-white p-5 flex flex-col justify-between shadow-md border-2 border-amber-400">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-xs font-extrabold text-amber-300">📌 مثال واقعي وتطبيقي</span>
+                                    <span class="text-xs text-teal-200">🔄 ارجع للتعريف</span>
+                                </div>
+                                <h4 class="text-base font-black text-white mb-2">${item.term}</h4>
+                                <p class="text-xs sm:text-sm text-teal-50 leading-relaxed bg-white/10 p-3 rounded-xl border border-white/15">
+                                    ${item.example}
+                                </p>
+                            </div>
+                            <div class="text-[11px] text-amber-300 font-bold">
+                                منهاج التكنولوجيا الفلسطيني - الصف السادس
+                            </div>
+                        </div>
+                    </div>
+                `;
+                card.addEventListener('click', () => {
+                    playTone(580, 0.07, 'sine');
+                    card.classList.toggle('flipped');
+                });
+                grid.appendChild(card);
+            });
+        }
+
+        document.getElementById('glossarySearchInput').addEventListener('input', (e) => {
+            currentGlossaryQuery = e.target.value;
+            renderGlossary();
+        });
+
+        document.querySelectorAll('#glossaryCategoryPills button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                playTone(500, 0.07, 'sine');
+                currentGlossaryCat = btn.getAttribute('data-gcat');
+                document.querySelectorAll('#glossaryCategoryPills button').forEach(b => {
+                    b.classList.toggle('active', b.getAttribute('data-gcat') === currentGlossaryCat);
+                });
+                renderGlossary();
+            });
+        });
+
+        document.getElementById('flipAllGlossaryBtn').addEventListener('click', () => {
+            playTone(620, 0.1, 'triangle');
+            allFlipped = !allFlipped;
+            renderGlossary();
+        });
+
+        renderGlossary();
+
+        // ==========================================
+        // Section 6: Interactive Quiz Engine
+        // ==========================================
+        const quizQuestions = [
+            {
+                q: '1. ما المقصود بعبارة وحكمة «لا تخترع عجلاً»؟',
+                options: [
+                    'التوقف عن استخدام العجلات في الصناعة الحديثة',
+                    'البدء من حيث انتهى الآخرون وعدم إضاعة الوقت في أمور تم اكتشافها مسبقاً',
+                    'صناعة عجلات مربعة الشكل بدلاً من الدائرية',
+                    'الاعتماد على القوة العضلية فقط دون أدوات'
+                ],
+                correct: 1,
+                explanation: 'تُقال حكمة «لا تخترع عجلاً» لحثّ الإنسان على الاستفادة من خبرات واختراعات السابقين والبدء من حيث انتهوا وتطويرها بدلاً من إضاعة الجهد والوقت.'
+            },
+            {
+                q: '2. ما الأداة الميكانيكية التي تأخذ شكل عجل يدور حول محور ويلتف حول محيطه حبل أو سلسلة؟',
+                options: [
+                    'المقاومة الكهربائية',
+                    'البكرة',
+                    'المستوى المائل الثابت',
+                    'المجس الضوئي'
+                ],
+                correct: 1,
+                explanation: 'البكرة هي أداة ميكانيكية على شكل عجل ذي مجرى غائر يدور حول محور ويلتف حول محيطه حبل أو حزام أو سلسلة معدنية.'
+            },
+            {
+                q: '3. ما الوظيفة الأساسية لنظام «البكرة الثابتة» مثل بكرة سارية العلم المدرسي؟',
+                options: [
+                    'تغيير اتجاه القوة (نسحب للأسفل ليرتفع العلم للأعلى)',
+                    'إنقاص وزن العلم إلى العُشر',
+                    'زيادة وزن الثقل المرفوع للضعف',
+                    'توليد التيار الكهربائي'
+                ],
+                correct: 0,
+                explanation: 'البكرة الثابتة تدور حول محور ثابت في الأعلى، ووظيفتها الأساسية تغيير اتجاه القوة لتسهيل السحب دون تقليل الوزن الفعلي.'
+            },
+            {
+                q: '4. أي أنظمة البكرات يتحرك فيه محور البكرة وينتقل مع حركة الثقل صعوداً وهبوطاً؟',
+                options: [
+                    'النظام الثابت',
+                    'النظام المتحرك',
+                    'النظام الكهربائي',
+                    'النظام المغناطيسي'
+                ],
+                correct: 1,
+                explanation: 'في النظام المتحرك تكون البكرة متصلة بالثقل ولها محور حر يتحرك مع حركة الثقل، مما يوزع الوزن ويقلل الجهد.'
+            },
+            {
+                q: '5. لماذا سُمّي «نظام البكرات المركب» بهذا الاسم؟',
+                options: [
+                    'لأنه يُركّب داخل السيارات فقط',
+                    'لأنه يتركب من دمج النظامين الثابت والمتحرك معاً في نظام واحد',
+                    'لأنه مصنوع من البلاستيك المركب فقط',
+                    'لأنه لا يحتوي على أي حبال'
+                ],
+                correct: 1,
+                explanation: 'النظام المركب هو مجموع النظامين الثابت والمتحرك معاً، وبذلك يجمع بين تغيير اتجاه القوة وتقليل الجهد المبذول.'
+            },
+            {
+                q: '6. ماذا يحدث للقوة اللازمة لرفع ثقل كلما زاد عدد البكرات في النظام المركب؟',
+                options: [
+                    'يتوزع الحمل أكثر وتقل القوة (الجهد) اللازمة لرفع الثقل',
+                    'تزداد القوة اللازمة لرفع الثقل بشكل كبير',
+                    'يبقى الجهد المبذول ثابتاً لا يتغير أبداً',
+                    'يتوقف النظام عن الحركة'
+                ],
+                correct: 0,
+                explanation: 'القاعدة الذهبية في الدرس: كلما زاد عدد البكرات في النظام المركب، توزع الحمل أكثر وخفّ الثقل وقلّ الجهد اللازم لرفعه.'
+            },
+            {
+                q: '7. إذا أردنا رفع صندوق وزنه (100 نيوتن) باستخدام نظام مركب يتكون من بكرتين (ثابتة ومتحركة)، فكم تبلغ القوة اللازمة لرفعه تقريباً؟',
+                options: [
+                    '200 نيوتن',
+                    '100 نيوتن',
+                    '50 نيوتن (نصف الوزن)',
+                    '500 نيوتن'
+                ],
+                correct: 2,
+                explanation: 'وجود البكرة المتحركة في النظام المركب الثنائي يقسم الحمل على حبلين، فنحتاج إلى نصف الوزن فقط (50 نيوتن) مع سهولة السحب للأسفل.'
+            },
+            {
+                q: '8. أي من التطبيقات التالية يُعد مثالاً على استخدام البكرات والأحزمة/السلاسل في «توصيل ونقل الحركة»؟',
+                options: [
+                    'الدراجة الهوائية والغسالة الكهربائية',
+                    'القلم الرصاص والدفتر',
+                    'المصباح اليدوي',
+                    'المسطرة الخشبية'
+                ],
+                correct: 0,
+                explanation: 'تُستخدم البكرات والمسننات مع السلاسل والأحزمة في الدراجة الهوائية والغسالة الكهربائية ومحرك السيارة لنقل الحركة الدورانية من محور لآخر.'
+            }
+        ];
+
+        const userAnswers = new Array(quizQuestions.length).fill(null);
+
+        function renderQuiz() {
+            const container = document.getElementById('quizQuestionsContainer');
+            container.innerHTML = '';
+
+            quizQuestions.forEach((item, qIdx) => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3';
+
+                const optionsHtml = item.options.map((opt, oIdx) => {
+                    const answered = userAnswers[qIdx] !== null;
+                    const isSelected = userAnswers[qIdx] === oIdx;
+                    const isCorrect = item.correct === oIdx;
+
+                    let btnStyle = 'bg-slate-50 hover:bg-teal-50 border-slate-200 text-slate-800';
+                    if (answered) {
+                        if (isCorrect) {
+                            btnStyle = 'bg-emerald-100 border-emerald-500 text-emerald-950 font-extrabold';
+                        } else if (isSelected && !isCorrect) {
+                            btnStyle = 'bg-rose-100 border-rose-400 text-rose-950';
+                        } else {
+                            btnStyle = 'bg-slate-50 border-slate-200 text-slate-400 opacity-75';
+                        }
+                    }
+
+                    return `
+                        <button type="button" data-q="${qIdx}" data-o="${oIdx}" class="quiz-opt-btn w-full text-right p-3.5 rounded-xl border-2 text-xs sm:text-sm font-bold transition flex items-center justify-between ${btnStyle}" ${answered ? 'disabled' : ''}>
+                            <span>${opt}</span>
+                            <span>${answered && isCorrect ? '✅' : (answered && isSelected && !isCorrect ? '❌' : '')}</span>
+                        </button>
+                    `;
+                }).join('');
+
+                const feedbackHtml = userAnswers[qIdx] !== null ? `
+                    <div class="p-3.5 rounded-xl text-xs sm:text-sm font-bold ${userAnswers[qIdx] === item.correct ? 'bg-emerald-50 text-emerald-900 border border-emerald-200' : 'bg-amber-50 text-amber-900 border border-amber-200'}">
+                        ${userAnswers[qIdx] === item.correct ? '🌟 إجابة صحيحة! ' : '💡 توضيح الإجابة الصحيحة: '}
+                        <span class="font-medium">${item.explanation}</span>
+                    </div>
+                ` : '';
+
+                card.innerHTML = `
+                    <h4 class="font-extrabold text-slate-900 text-sm sm:text-base">${item.q}</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                        ${optionsHtml}
+                    </div>
+                    ${feedbackHtml}
+                `;
+                container.appendChild(card);
+            });
+
+            // Attach listeners
+            document.querySelectorAll('.quiz-opt-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const q = parseInt(btn.getAttribute('data-q'), 10);
+                    const o = parseInt(btn.getAttribute('data-o'), 10);
+                    if (userAnswers[q] !== null) return;
+                    userAnswers[q] = o;
+                    if (o === quizQuestions[q].correct) {
+                        playTone(700, 0.14, 'triangle');
+                    } else {
+                        playTone(250, 0.18, 'sawtooth');
+                    }
+                    updateQuizScore();
+                    renderQuiz();
+                });
+            });
+        }
+
+        function updateQuizScore() {
+            const score = userAnswers.reduce((acc, ans, idx) => acc + (ans === quizQuestions[idx].correct ? 1 : 0), 0);
+            const answeredCount = userAnswers.filter(a => a !== null).length;
+            document.getElementById('quizScoreBadge').textContent = `${score} / ${quizQuestions.length}`;
+
+            const certBox = document.getElementById('quizCertificateBox');
+            if (answeredCount === quizQuestions.length) {
+                certBox.classList.remove('hidden');
+                const studentName = document.getElementById('studentNameInput').value.trim() || 'طالب الصف السادس المبدع';
+                document.getElementById('certStudentLine').textContent = `يُمنح هذا الوسام للطالب: ${studentName}`;
+                document.getElementById('certScoreLine').textContent = `لإتمامه الأنشطة التفاعلية والاختبار التقييمي بدرجة (${score} من ${quizQuestions.length}) في مبحث التكنولوجيا.`;
+            } else {
+                certBox.classList.add('hidden');
+            }
+        }
+
+        document.getElementById('studentNameInput').addEventListener('input', updateQuizScore);
+
+        document.getElementById('resetQuizBtn').addEventListener('click', () => {
+            playTone(450, 0.1, 'sine');
+            for (let i = 0; i < userAnswers.length; i++) userAnswers[i] = null;
+            updateQuizScore();
+            renderQuiz();
+        });
+
+        renderQuiz();
+    </script>
+</body>
+</html>
